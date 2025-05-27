@@ -25,7 +25,10 @@ export default function Home() {
   const realPhotoOpacity = Math.min(1, scrollY / 400);
 
   return (
-    <main className="bg-white min-h-screen">
+    <main
+      className="bg-white min-h-screen"
+      style={{ fontFamily: "var(--font-shippori-mincho)" }}
+    >
       {/* Hero Section */}
       <section className="relative flex justify-center items-center h-screen overflow-hidden">
         {/* Line Art Image */}
@@ -64,11 +67,19 @@ export default function Home() {
         <div
           className={`absolute bottom-32 left-1/2 transform -translate-x-1/2 text-center transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <h1 className="mb-4 font-light text-black text-5xl md:text-7xl tracking-wide">
-            Takashi Yamamura
+          <h1 className="mb-4 font-black text-black text-5xl md:text-7xl tracking-wide">
+            フランクフルト林
           </h1>
-          <p className="font-light text-gray-700 text-lg md:text-xl italic">
-            Welcome to my store
+          <h2 className="mb-6 font-light text-black text-2xl md:text-3xl tracking-wide">
+            Taichi Hayashi
+          </h2>
+          <p className="max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed">
+            日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
+          </p>
+          <p className="mb-4 max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed">
+            Discover exclusive merchandise from Japan&apos;s most captivating
+            actor. Limited edition items that reflect elegance and
+            sophistication.
           </p>
         </div>
 
@@ -84,7 +95,7 @@ export default function Home() {
       <section className="bg-gray-50 px-4 sm:px-6 lg:px-8 py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-6 font-light text-black text-4xl md:text-5xl tracking-wide">
+            <h2 className="mb-6 font-black text-black text-4xl md:text-5xl tracking-wide">
               Merchandise
             </h2>
             <div className="bg-black mx-auto w-24 h-px"></div>
@@ -160,7 +171,7 @@ export default function Home() {
             {/* Artist Name */}
             <div className="md:col-span-2">
               <h4 className="mb-4 font-light text-2xl tracking-wide">
-                Takashi Yamamura
+                フランクフルト林 (Taichi Hayashi)
               </h4>
               <p className="text-gray-400 leading-relaxed">
                 Official merchandise store featuring exclusive designs and
@@ -239,7 +250,8 @@ export default function Home() {
           {/* Company Info */}
           <div className="mt-12 pt-8 border-gray-800 border-t text-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Takashi Yamamura Official Store. All rights reserved.
+              © 2024 フランクフルト林 (Taichi Hayashi) Official Store. All
+              rights reserved.
             </p>
           </div>
         </div>
