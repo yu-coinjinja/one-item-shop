@@ -96,7 +96,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
             <h2 className="mb-6 font-black text-black text-4xl md:text-5xl tracking-wide">
-              Merchandise
+              Exclusive Collection
             </h2>
             <div className="bg-black mx-auto w-24 h-px"></div>
           </div>
@@ -107,9 +107,12 @@ export default function Home() {
             <div className="group relative">
               <div className="bg-white shadow-2xl rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-500 transform">
                 <div className="relative aspect-square">
-                  <div className="absolute inset-0 flex justify-center items-center bg-gradient-to-br from-gray-100 to-white">
-                    <div className="text-gray-300 text-8xl">👕</div>
-                  </div>
+                  <Image
+                    src="/item1.jpg"
+                    alt="Signature T-Shirt"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
