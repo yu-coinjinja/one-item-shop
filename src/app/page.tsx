@@ -1,18 +1,12 @@
 'use client'
 
 import BuyButton from '@/components/BuyButton'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Image from 'next/image'
+import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false)
   const { scrollY } = useScroll()
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
 
   // Animation breakpoints
   const transitionStart = 200
@@ -37,47 +31,37 @@ export default function Home() {
     <main className="bg-white min-h-screen" style={{ fontFamily: 'var(--font-shippori-mincho)' }}>
       {/* Fixed Image Container */}
       <motion.div
-        className="top-1/2 left-1/2 z-10 fixed flex justify-center items-center"
-        style={{
-          x: '-50%',
-          y: '-50%',
-          scale: imageScale,
-        }}
-        animate={{
-          opacity: scrollY.get() < releasePoint ? 1 : 0,
-        }}
+        className="z-10 fixed flex justify-center items-center w-full h-full"
+        style={{ scale: imageScale }}
+        animate={{ opacity: scrollY.get() < releasePoint ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
         {/* Line Art Image */}
         <motion.div
-          className="absolute inset-0 flex justify-center items-center"
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-128 h-80 md:h-128 -translate-x-1/2 -translate-y-1/2"
           style={{ opacity: lineArtOpacity }}
         >
-          <div className="relative w-80 md:w-128 h-80 md:h-128">
-            <Image
-              src="/line.png"
-              alt="Taichi Hayashi Line Art"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          <Image
+            src="/line.png"
+            alt="Taichi Hayashi Line Art"
+            fill
+            className="object-contain"
+            priority
+          />
         </motion.div>
 
         {/* Real Photo */}
         <motion.div
-          className="absolute inset-0 flex justify-center items-center"
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-128 h-80 md:h-128 -translate-x-1/2 -translate-y-1/2"
           style={{ opacity: realPhotoOpacity }}
         >
-          <div className="relative w-80 md:w-128 h-80 md:h-128">
-            <Image
-              src="/real.png"
-              alt="Taichi Hayashi"
-              fill
-              className="rounded-lg object-cover"
-              priority
-            />
-          </div>
+          <Image
+            src="/real.png"
+            alt="Taichi Hayashi"
+            fill
+            className="rounded-lg object-cover"
+            priority
+          />
         </motion.div>
       </motion.div>
 
@@ -88,52 +72,6 @@ export default function Home() {
           opacity: initialContentOpacity,
         }}
       >
-        {/* Name and Message */}
-        <motion.div
-          className="bottom-32 left-1/2 absolute text-center -translate-x-1/2 transform"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{
-            opacity: isLoaded ? 1 : 0,
-            y: isLoaded ? 0 : 30,
-          }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <motion.h1
-            className="mb-4 font-black text-black text-5xl md:text-7xl tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            フランクフルト林
-          </motion.h1>
-          <motion.h2
-            className="mb-6 font-light text-black text-2xl md:text-3xl tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-          >
-            Taichi Hayashi
-          </motion.h2>
-          <motion.p
-            className="max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-          >
-            日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
-          </motion.p>
-          <motion.p
-            className="mb-4 max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-          >
-            Discover exclusive merchandise from Japan&apos;s most captivating actor. Limited edition
-            items that reflect elegance and sophistication.
-          </motion.p>
-        </motion.div>
-
-        {/* Scroll Indicator */}
         <motion.div
           className="bottom-8 left-1/2 absolute -translate-x-1/2 transform"
           initial={{ opacity: 0, y: 20 }}
