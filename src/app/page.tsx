@@ -4,11 +4,9 @@ import BuyButton from '@/components/BuyButton'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
-import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { scrollY } = useScroll()
-  const [isImageFixed, setIsImageFixed] = useState(true)
 
   // Animation breakpoints
   const transitionStart = 200
@@ -16,19 +14,13 @@ export default function Home() {
   const releasePoint = 600
 
   // Monitor scroll to update image positioning
-  useEffect(() => {
-    const unsubscribe = scrollY.onChange(latest => {
-      setIsImageFixed(latest < transitionEnd)
-    })
-    return unsubscribe
-  }, [scrollY, transitionEnd])
 
   // Transform scroll values to animation values
   const lineArtOpacity = useTransform(scrollY, [0, transitionStart, transitionEnd], [1, 1, 0])
   const realPhotoOpacity = useTransform(
     scrollY,
-    [transitionStart, transitionEnd, transitionEnd + 1000],
-    [0, 1, 0]
+    [transitionStart, transitionEnd, transitionEnd + 200, transitionEnd + 300],
+    [0, 1, 1, 0]
   )
   const imageScale = useTransform(scrollY, [0, transitionStart], [1, 1.1])
 
@@ -39,17 +31,19 @@ export default function Home() {
     [1, 1, 0]
   )
 
-  const finalContentOpacity = useTransform(scrollY, [releasePoint, releasePoint + 200], [0, 1])
-  const finalContentY = useTransform(scrollY, [releasePoint, releasePoint + 200], [50, 0])
+  const finalContentOpacity = useTransform(
+    scrollY,
+    [releasePoint - 100, releasePoint + 100],
+    [0, 1]
+  )
 
   return (
-    <main className="bg-white min-h-screen" style={{ fontFamily: 'var(--font-shippori-mincho)' }}>
+    <main
+      className="z-0 relative min-h-screen"
+      style={{ fontFamily: 'var(--font-shippori-mincho)' }}
+    >
       {/* Fixed Image Container - only fixed until real image is fully shown */}
-      <motion.div
-        className={`z-10 flex justify-center items-center w-full h-full ${isImageFixed ? 'fixed' : 'relative'}`}
-        animate={{ opacity: scrollY.get() < releasePoint ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
+      <motion.div className="-z-1 fixed flex justify-center items-center w-full h-full">
         {/* Line Art Image */}
         <motion.div
           className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[800px] h-80 md:h-[800px] -translate-x-1/2 -translate-y-1/2"
@@ -59,7 +53,7 @@ export default function Home() {
             src="/line.png"
             alt="Taichi Hayashi Line Art"
             fill
-            className="object-contain"
+            className="rounded-lg object-cover"
             priority
           />
         </motion.div>
@@ -101,20 +95,15 @@ export default function Home() {
       </motion.div>
 
       {/* Spacer for scroll effect - adjusted for new behavior */}
-      <div style={{ height: `${transitionEnd}px` }}></div>
+      <div style={{ height: `min(100vh, ${transitionEnd + 300}px)` }}></div>
 
       {/* Final Content */}
-      <motion.div
-        style={{
-          opacity: finalContentOpacity,
-          y: finalContentY,
-        }}
-      >
+      <motion.div style={{ opacity: finalContentOpacity }}>
         {/* Name and Message - Reappears after transition */}
-        <section className="px-4 sm:px-6 lg:px-8 pt-[800px] pb-32 text-center">
-          <div className="mx-auto max-w-4xl">
+        <section className="px-4 sm:px-6 lg:px-8 pt-[80vh] pb-32 md:pb-64 text-center">
+          <div className="flex flex-col items-center gap-3 mx-auto">
             <motion.h1
-              className="mb-4 font-black text-black text-5xl md:text-7xl tracking-wide"
+              className="mb-4 font-black text-black text-4xl md:text-7xl tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -132,7 +121,7 @@ export default function Home() {
               Taichi Hayashi
             </motion.h2>
             <motion.p
-              className="max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
+              className="max-w-5xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -141,7 +130,7 @@ export default function Home() {
               日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
             </motion.p>
             <motion.p
-              className="mb-4 max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
+              className="mb-4 max-w-5xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -154,7 +143,7 @@ export default function Home() {
         </section>
 
         {/* Merchandise Section */}
-        <section className="bg-gray-50 px-4 sm:px-6 lg:px-8 py-20">
+        <section className="bg-gray-50 px-4 sm:px-6 lg:px-8 py-32 overflow-hidden">
           <div className="mx-auto max-w-6xl">
             <motion.div
               className="mb-16 text-center"
@@ -174,7 +163,7 @@ export default function Home() {
               {/* Product Image */}
               <motion.div
                 className="group relative"
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
@@ -193,7 +182,7 @@ export default function Home() {
               {/* Product Details */}
               <motion.div
                 className="space-y-8"
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}

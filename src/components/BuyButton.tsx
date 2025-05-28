@@ -47,8 +47,7 @@ export default function BuyButton() {
     <button
       onClick={handleCheckout}
       disabled={isLoading}
-      className="flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 px-8 py-3 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full font-bold text-white cursor-pointer disabled:cursor-not-allowed"
-      style={{ fontFamily: 'var(--font-noto-sans-jp)' }}
+      className="flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 px-8 py-3 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full font-sans font-bold text-white cursor-pointer disabled:cursor-not-allowed"
     >
       {isLoading ? 'Loading...' : '購入 / Buy Now'}
     </button>
