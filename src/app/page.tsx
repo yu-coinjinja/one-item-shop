@@ -4,42 +4,56 @@ import BuyButton from '@/components/BuyButton'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { scrollY } = useScroll()
+  const [isImageFixed, setIsImageFixed] = useState(true)
 
   // Animation breakpoints
   const transitionStart = 200
   const transitionEnd = 600
-  const releasePoint = 800
+  const releasePoint = 600
+
+  // Monitor scroll to update image positioning
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange(latest => {
+      setIsImageFixed(latest < transitionEnd)
+    })
+    return unsubscribe
+  }, [scrollY, transitionEnd])
 
   // Transform scroll values to animation values
   const lineArtOpacity = useTransform(scrollY, [0, transitionStart, transitionEnd], [1, 1, 0])
-  const realPhotoOpacity = useTransform(scrollY, [transitionStart, transitionEnd], [0, 1])
+  const realPhotoOpacity = useTransform(
+    scrollY,
+    [transitionStart, transitionEnd, transitionEnd + 1000],
+    [0, 1, 0]
+  )
   const imageScale = useTransform(scrollY, [0, transitionStart], [1, 1.1])
 
-  // Content animations
-  const initialContentOpacity = useTransform(
+  // Scroll indicator should disappear when real image appears
+  const scrollIndicatorOpacity = useTransform(
     scrollY,
-    [0, transitionStart - 50, transitionStart],
+    [0, transitionStart, transitionEnd],
     [1, 1, 0]
   )
+
   const finalContentOpacity = useTransform(scrollY, [releasePoint, releasePoint + 200], [0, 1])
   const finalContentY = useTransform(scrollY, [releasePoint, releasePoint + 200], [50, 0])
 
   return (
     <main className="bg-white min-h-screen" style={{ fontFamily: 'var(--font-shippori-mincho)' }}>
-      {/* Fixed Image Container */}
+      {/* Fixed Image Container - only fixed until real image is fully shown */}
       <motion.div
-        className="z-10 fixed flex justify-center items-center w-full h-full"
-        style={{ scale: imageScale }}
+        className={`z-10 flex justify-center items-center w-full h-full ${isImageFixed ? 'fixed' : 'relative'}`}
         animate={{ opacity: scrollY.get() < releasePoint ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
         {/* Line Art Image */}
         <motion.div
-          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-128 h-80 md:h-128 -translate-x-1/2 -translate-y-1/2"
-          style={{ opacity: lineArtOpacity }}
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[800px] h-80 md:h-[800px] -translate-x-1/2 -translate-y-1/2"
+          style={{ opacity: lineArtOpacity, scale: imageScale }}
         >
           <Image
             src="/line.png"
@@ -52,8 +66,8 @@ export default function Home() {
 
         {/* Real Photo */}
         <motion.div
-          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-128 h-80 md:h-128 -translate-x-1/2 -translate-y-1/2"
-          style={{ opacity: realPhotoOpacity }}
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[800px] h-80 md:h-[800px] -translate-x-1/2 -translate-y-1/2"
+          style={{ opacity: realPhotoOpacity, scale: imageScale }}
         >
           <Image
             src="/real.png"
@@ -63,20 +77,14 @@ export default function Home() {
             priority
           />
         </motion.div>
-      </motion.div>
 
-      {/* Initial Content */}
-      <motion.section
-        className="relative h-screen overflow-hidden"
-        style={{
-          opacity: initialContentOpacity,
-        }}
-      >
+        {/* Scroll Indicator - disappears when real image appears */}
         <motion.div
           className="bottom-8 left-1/2 absolute -translate-x-1/2 transform"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
+          style={{ opacity: scrollIndicatorOpacity }}
         >
           <motion.div
             className="flex justify-center border-2 border-black rounded-full w-6 h-10"
@@ -90,10 +98,10 @@ export default function Home() {
             />
           </motion.div>
         </motion.div>
-      </motion.section>
+      </motion.div>
 
-      {/* Spacer for scroll effect */}
-      <div style={{ height: `${releasePoint}px` }}></div>
+      {/* Spacer for scroll effect - adjusted for new behavior */}
+      <div style={{ height: `${transitionEnd}px` }}></div>
 
       {/* Final Content */}
       <motion.div
@@ -103,7 +111,7 @@ export default function Home() {
         }}
       >
         {/* Name and Message - Reappears after transition */}
-        <section className="bg-white px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <section className="px-4 sm:px-6 lg:px-8 pt-[800px] pb-32 text-center">
           <div className="mx-auto max-w-4xl">
             <motion.h1
               className="mb-4 font-black text-black text-5xl md:text-7xl tracking-wide"
