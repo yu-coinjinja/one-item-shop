@@ -4,7 +4,7 @@ import './globals.css'
 
 const shipporiSans = Shippori_Mincho({
   variable: '--font-shippori-mincho',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '700'],
   subsets: ['latin'],
 })
 
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: 'フランクフルト林 Official Store',
     images: [
       {
-        url: '/item1.jpg',
+        url: '/og.png',
         width: 1200,
         height: 630,
         alt: 'フランクフルト林 Official Merchandise',
@@ -66,8 +66,8 @@ export const metadata: Metadata = {
     title: 'フランクフルト林 Official Store | Exclusive Merchandise',
     description:
       "Discover exclusive merchandise from Japan's most captivating actor. Limited edition items that reflect elegance and sophistication.",
-    images: ['/item1.jpg'],
-    creator: '@frankfurtlin', // Replace with actual Twitter handle
+    images: ['/og.png'],
+    creator: '@dekkai_chimpo', // Replace with actual Twitter handle
   },
   robots: {
     index: true,

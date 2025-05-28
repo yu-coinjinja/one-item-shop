@@ -257,7 +257,7 @@ export default function Home() {
             <div className="gap-8 grid md:grid-cols-4">
               {/* Artist Name */}
               <div className="md:col-span-2">
-                <h4 className="mb-4 font-light text-2xl tracking-wide">
+                <h4 className="mb-4 font-light text-lg md:text-2xl tracking-wide">
                   フランクフルト林 (Taichi Hayashi)
                 </h4>
                 <p className="text-gray-400 leading-relaxed">
@@ -331,7 +331,7 @@ export default function Home() {
             </div>
 
             {/* Company Info */}
-            <div className="mt-12 pt-8 border-gray-800 border-t text-center">
+            <div className="mt-12 pt-8 border-gray-800 border-t font-sans text-center">
               <p className="text-gray-400 text-sm">
                 © 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.
               </p>
