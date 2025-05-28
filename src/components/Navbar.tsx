@@ -30,7 +30,7 @@ const BrandLogo = ({ brand }: { brand: typeof navigationData.brand }) => (
     href={brand.href}
     className="font-medium text-white hover:text-gray-300 text-xl md:text-2xl tracking-wide transition-colors duration-200"
   >
-    {brand.name}
+    TH Official Store
   </Link>
 )
 
@@ -70,19 +70,18 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 900 }: 
 
   // For home page, show navbar only after scroll threshold
   const navbarOpacity = useTransform(scrollY, [scrollThreshold - 100, scrollThreshold], [0, 1])
+  const navbarY = useTransform(scrollY, [scrollThreshold - 100, scrollThreshold], [-100, 0])
 
-  // Determine if navbar should be visible
-  const shouldShow = !isHomePage || !showOnScroll
+  // Determine if navbar should be visible immediately (not on home page or not using scroll behavior)
+  const shouldShowImmediately = !isHomePage || !showOnScroll
 
   return (
     <motion.nav
       className="top-0 right-0 left-0 z-50 fixed bg-black/90 backdrop-blur-sm border-gray-800 border-b"
-      initial={{ opacity: shouldShow ? 1 : 0, y: shouldShow ? 0 : -100 }}
-      animate={{
-        opacity: shouldShow ? 1 : undefined,
-        y: shouldShow ? 0 : undefined,
+      initial={{
+        opacity: shouldShowImmediately ? 1 : 0,
       }}
-      style={isHomePage && showOnScroll ? { opacity: navbarOpacity } : {}}
+      style={isHomePage && showOnScroll ? { opacity: navbarOpacity, y: navbarY } : {}}
       transition={{ duration: 0.3 }}
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">

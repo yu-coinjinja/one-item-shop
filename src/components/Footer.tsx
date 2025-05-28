@@ -3,6 +3,38 @@
 import { motion } from 'framer-motion'
 import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 
+// Data layer - Footer configuration
+const footerData = {
+  artist: {
+    name: 'フランクフルト林 (Taichi Hayashi)',
+    description:
+      'Official merchandise store featuring exclusive designs and premium quality apparel.',
+  },
+  legal: {
+    title: 'Legal',
+    links: [
+      { name: '特定商取引法に基づく表記', href: '/tokutei-shoutorihiki' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
+      { name: 'Shipping Policy', href: '/shipping-policy' },
+    ],
+  },
+  payment: {
+    title: 'Payment Methods',
+    methods: ['Visa', 'Mastercard'] as const,
+  },
+  social: {
+    title: 'Social Media',
+    links: [
+      { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
+      { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },
+      { name: 'OnlyFans', href: 'https://onlyfans.com/ffhys', icon: 'onlyfans' },
+      { name: 'X', href: 'https://x.com/dekkai_chimpo', icon: 'x' },
+    ],
+  },
+  copyright: '© 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.',
+}
+
 // Custom SVG Icons
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -35,6 +67,81 @@ const OnlyFansIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+// Icon mapping
+const iconMap = {
+  instagram: InstagramIcon,
+  x: XIcon,
+  myfans: MyFansIcon,
+  onlyfans: OnlyFansIcon,
+}
+
+// Visual layer - Footer components
+const ArtistSection = ({ artist }: { artist: typeof footerData.artist }) => (
+  <div className="md:col-span-2">
+    <h4 className="mb-4 font-light text-lg md:text-2xl tracking-wide">{artist.name}</h4>
+    <p className="text-gray-400 leading-relaxed">{artist.description}</p>
+  </div>
+)
+
+const LegalSection = ({
+  legal,
+  payment,
+}: {
+  legal: typeof footerData.legal
+  payment: typeof footerData.payment
+}) => (
+  <div>
+    <h5 className="mb-4 font-medium tracking-wide">{legal.title}</h5>
+    <ul className="space-y-2 mb-6 text-gray-400">
+      {legal.links.map(link => (
+        <li key={link.href}>
+          <a href={link.href} className="hover:text-white transition-colors duration-200">
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div>
+      <p className="mb-4 font-medium tracking-wide">{payment.title}</p>
+      <div className="flex space-x-2 h-6">
+        {payment.methods.map(method => (
+          <PaymentIcon key={method} type={method} format="flatRounded" />
+        ))}
+      </div>
+    </div>
+  </div>
+)
+
+const SocialSection = ({ social }: { social: typeof footerData.social }) => (
+  <div>
+    <h5 className="mb-4 font-medium tracking-wide">{social.title}</h5>
+    <div className="flex flex-col space-y-3">
+      {social.links.map(link => {
+        const IconComponent = iconMap[link.icon as keyof typeof iconMap]
+        return (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            <IconComponent className="w-5 h-5" />
+            <span>{link.name}</span>
+          </a>
+        )
+      })}
+    </div>
+  </div>
+)
+
+const CopyrightSection = ({ copyright }: { copyright: string }) => (
+  <div className="mt-12 pt-8 border-gray-800 border-t font-sans text-center">
+    <p className="text-gray-400 text-sm">{copyright}</p>
+  </div>
+)
+
 export default function Footer() {
   return (
     <motion.footer
@@ -46,113 +153,11 @@ export default function Footer() {
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="gap-8 grid grid-cols-1 md:grid-cols-4">
-          {/* Artist Name */}
-          <div className="md:col-span-2">
-            <h4 className="mb-4 font-light text-lg md:text-2xl tracking-wide">
-              フランクフルト林 (Taichi Hayashi)
-            </h4>
-            <p className="text-gray-400 leading-relaxed">
-              Official merchandise store featuring exclusive designs and premium quality apparel.
-            </p>
-          </div>
-
-          {/* Legal Section */}
-          <div>
-            <h5 className="mb-4 font-medium tracking-wide">Legal</h5>
-            <ul className="space-y-2 mb-6 text-gray-400">
-              <li>
-                <a
-                  href="/tokutei-shoutorihiki"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  特定商取引法に基づく表記
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/privacy-policy"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/terms-of-service"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/shipping-policy"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Shipping Policy
-                </a>
-              </li>
-            </ul>
-
-            <div>
-              <p className="mb-4 font-medium tracking-wide">Payment Methods</p>
-              <div className="flex space-x-2 h-6">
-                <PaymentIcon type="Visa" format="flatRounded" />
-                <PaymentIcon type="Mastercard" format="flatRounded" />
-              </div>
-            </div>
-          </div>
-
-          {/* Social Media Section */}
-          <div>
-            <h5 className="mb-4 font-medium tracking-wide">Social Media</h5>
-            <div className="flex flex-col space-y-3">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <InstagramIcon className="w-5 h-5" />
-                <span>Instagram</span>
-              </a>
-              <a
-                href="http://myfans.jp/dekkai_chimpo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <MyFansIcon className="w-5 h-5" />
-                <span>MyFans</span>
-              </a>
-              <a
-                href="https://onlyfans.com/ffhys"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <OnlyFansIcon className="w-5 h-5" />
-                <span>OnlyFans</span>
-              </a>
-              <a
-                href="https://x.com/dekkai_chimpo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <XIcon className="w-5 h-5" />
-                <span>X</span>
-              </a>
-            </div>
-          </div>
+          <ArtistSection artist={footerData.artist} />
+          <LegalSection legal={footerData.legal} payment={footerData.payment} />
+          <SocialSection social={footerData.social} />
         </div>
-
-        {/* Company Info */}
-        <div className="mt-12 pt-8 border-gray-800 border-t font-sans text-center">
-          <p className="text-gray-400 text-sm">
-            © 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.
-          </p>
-        </div>
+        <CopyrightSection copyright={footerData.copyright} />
       </div>
     </motion.footer>
   )
