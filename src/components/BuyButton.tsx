@@ -3,13 +3,26 @@
 import { useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+// Check if the Stripe publishable key is configured
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+if (!stripePublishableKey) {
+  console.error('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not configured in environment variables')
+}
+
+const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : null
 
 export default function BuyButton() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleCheckout = async () => {
     try {
+      // Check if Stripe is properly configured
+      if (!stripePublishableKey) {
+        throw new Error(
+          'Stripe is not properly configured. Please check your environment variables.'
+        )
+      }
+
       setIsLoading(true)
       const response = await fetch('/api/stripe/checkout', {
         method: 'POST',
@@ -41,6 +54,18 @@ export default function BuyButton() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  // Show a different button if Stripe is not configured
+  if (!stripePublishableKey) {
+    return (
+      <button
+        disabled
+        className="flex justify-center items-center bg-gray-400 px-8 py-3 border border-transparent rounded-md w-full font-sans font-bold text-white cursor-not-allowed"
+      >
+        Stripe Not Configured
+      </button>
+    )
   }
 
   return (
