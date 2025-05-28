@@ -71,13 +71,13 @@ NEXT_PUBLIC_PRODUCT_DESCRIPTION="This is the most awesome gadget you will ever o
 NEXT_PUBLIC_CURRENCY="USD"
 
 # Email Service
-EMAIL_SERVICE_API_KEY="YOUR_EMAIL_SERVICE_API_KEY"
+RESEND_API_KEY="YOUR_RESEND_API_KEY"
 SENDER_EMAIL_ADDRESS="your-store-email@example.com"
 ```
 
 **Important Notes:**
 - Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser
-- Keep sensitive keys (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `EMAIL_SERVICE_API_KEY`) server-side only
+- Keep sensitive keys (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `RESEND_API_KEY`) server-side only
 - Obtain your API keys from the Stripe Dashboard and your chosen email service provider
 - Create a product and price in your Stripe Dashboard to get the `STRIPE_PRICE_ID`
 
