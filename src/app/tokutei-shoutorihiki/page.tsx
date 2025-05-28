@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import Breadcrumb from '@/components/Breadcrumb'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,9 +12,10 @@ export default function TokuteiShoutorihiki() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar />
+      <Breadcrumb />
 
       {/* Header */}
-      <div className="py-8 pt-24 md:pt-32">
+      <div className="py-8 pt-16 md:pt-24">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="pb-8 border-gray-500 border-b font-bold text-3xl md:text-4xl tracking-wide">
             特定商取引法に基づく表記
