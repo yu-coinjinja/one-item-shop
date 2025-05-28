@@ -14,9 +14,9 @@ const footerData = {
     title: 'Legal',
     links: [
       { name: '特定商取引法に基づく表記', href: '/tokutei-shoutorihiki' },
-      { name: 'Privacy Policy', href: '/privacy-policy' },
-      { name: 'Terms of Service', href: '/terms-of-service' },
-      { name: 'Shipping Policy', href: '/shipping-policy' },
+      { name: 'プライバシー', href: '/privacy-policy' },
+      { name: '利用規約', href: '/terms-of-service' },
+      { name: '配送条件', href: '/shipping-policy' },
     ],
   },
   payment: {

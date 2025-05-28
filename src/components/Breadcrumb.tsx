@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { ArrowLeftIcon, HomeIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -25,14 +26,7 @@ const BackButton = () => (
     href="/"
     className="inline-flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
   >
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M10 19l-7-7m0 0l7-7m-7 7h18"
-      />
-    </svg>
+    <ArrowLeftIcon className="w-4 h-4" />
     <span className="font-medium text-sm">Back to Home</span>
   </Link>
 )
@@ -43,7 +37,7 @@ const BreadcrumbPath = ({ pathname, customTitle }: { pathname: string; customTit
   return (
     <nav className="flex items-center space-x-2 text-sm">
       <Link href="/" className="text-gray-500 hover:text-black transition-colors duration-200">
-        Home
+        <HomeIcon className="w-4 h-4" />
       </Link>
 
       {pathSegments.map((segment, index) => {
