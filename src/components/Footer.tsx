@@ -62,6 +62,14 @@ export default function Footer() {
             <ul className="space-y-2 mb-6 text-gray-400">
               <li>
                 <a
+                  href="/tokutei-shoutorihiki"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  特定商取引法に基づく表記
+                </a>
+              </li>
+              <li>
+                <a
                   href="/privacy-policy"
                   className="hover:text-white transition-colors duration-200"
                 >
@@ -84,18 +92,10 @@ export default function Footer() {
                   Shipping Policy
                 </a>
               </li>
-              <li>
-                <a
-                  href="/tokutei-shoutorihiki"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  特定商取引法に基づく表記
-                </a>
-              </li>
             </ul>
 
             <div>
-              <p className="mb-2 text-gray-400 text-sm">Payment Methods</p>
+              <p className="mb-4 font-medium tracking-wide">Payment Methods</p>
               <div className="flex space-x-2 h-6">
                 <PaymentIcon type="Visa" format="flatRounded" />
                 <PaymentIcon type="Mastercard" format="flatRounded" />
