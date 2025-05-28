@@ -5,6 +5,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 
+// Note: Since this is a client component, we'll need to handle SEO differently
+// We'll add a separate metadata export or use next/head for dynamic SEO
+
 export default function Home() {
   const { scrollY } = useScroll()
 

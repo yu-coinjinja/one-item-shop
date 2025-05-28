@@ -1,6 +1,17 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
 import { CheckCircle, Package, Mail } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Order Confirmed - Thank You!',
+  description:
+    'Your order has been successfully confirmed. Thank you for your purchase from フランクフルト林 Official Store.',
+  robots: {
+    index: false, // Don't index success pages
+    follow: true,
+  },
+}
 
 function SuccessContent() {
   return (

@@ -1,4 +1,25 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    'Learn how we protect your privacy and handle your personal information at フランクフルト林 Official Store. GDPR compliant privacy policy.',
+  keywords: [
+    'privacy policy',
+    'data protection',
+    'personal information',
+    'GDPR',
+    'privacy rights',
+    'data security',
+    'customer privacy',
+  ],
+  openGraph: {
+    title: 'Privacy Policy | フランクフルト林 Official Store',
+    description: 'Learn how we protect your privacy and handle your personal information.',
+    type: 'website',
+  },
+}
 
 export default function PrivacyPolicy() {
   return (

@@ -1,4 +1,25 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description:
+    'Read our terms of service for purchasing from フランクフルト林 Official Store. Learn about our policies, returns, and customer rights.',
+  keywords: [
+    'terms of service',
+    'terms and conditions',
+    'purchase terms',
+    'customer rights',
+    'return policy',
+    'legal terms',
+    'store policies',
+  ],
+  openGraph: {
+    title: 'Terms of Service | フランクフルト林 Official Store',
+    description: 'Read our terms of service for purchasing from フランクフルト林 Official Store.',
+    type: 'website',
+  },
+}
 
 export default function TermsOfService() {
   return (

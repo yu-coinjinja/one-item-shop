@@ -1,4 +1,26 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Shipping Policy',
+  description:
+    'Learn about our worldwide shipping policy, delivery times, and packaging. Free shipping on all orders from フランクフルト林 Official Store.',
+  keywords: [
+    'shipping policy',
+    'worldwide shipping',
+    'free shipping',
+    'delivery times',
+    'international shipping',
+    'Japan shipping',
+    'package tracking',
+  ],
+  openGraph: {
+    title: 'Shipping Policy | フランクフルト林 Official Store',
+    description:
+      'Learn about our worldwide shipping policy, delivery times, and packaging. Free shipping on all orders.',
+    type: 'website',
+  },
+}
 
 export default function ShippingPolicy() {
   return (
