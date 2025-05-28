@@ -1,229 +1,136 @@
-import Link from 'next/link'
-import type { Metadata } from 'next'
+import Footer from '@/components/Footer'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Shipping Policy',
-  description:
-    'Learn about our worldwide shipping policy, delivery times, and packaging. Free shipping on all orders from フランクフルト林 Official Store.',
-  keywords: [
-    'shipping policy',
-    'worldwide shipping',
-    'free shipping',
-    'delivery times',
-    'international shipping',
-    'Japan shipping',
-    'package tracking',
-  ],
-  openGraph: {
-    title: 'Shipping Policy | フランクフルト林 Official Store',
-    description:
-      'Learn about our worldwide shipping policy, delivery times, and packaging. Free shipping on all orders.',
-    type: 'website',
-  },
+  title: 'Shipping Policy | フランクフルト林 Official Store',
+  description: 'Shipping Policy for フランクフルト林 Official Store',
 }
 
 export default function ShippingPolicy() {
   return (
-    <main className="bg-white min-h-screen" style={{ fontFamily: 'var(--font-shippori-mincho)' }}>
+    <main className="bg-white min-h-screen">
       {/* Header */}
-      <header className="bg-black py-8 text-white">
+      <div className="bg-black py-8">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <Link
-            href="/"
-            className="inline-block mb-4 text-gray-400 hover:text-white transition-colors duration-200"
-          >
-            ← Back to Store
-          </Link>
-          <h1 className="font-black text-4xl md:text-5xl tracking-wide">Shipping Policy</h1>
+          <h1 className="font-light text-white text-3xl md:text-4xl tracking-wide">
+            Shipping Policy
+          </h1>
         </div>
-      </header>
+      </div>
 
       {/* Content */}
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
-        <div className="max-w-none prose prose-lg">
-          <p className="mb-8 text-gray-600 leading-relaxed">
-            Last updated: {new Date().toLocaleDateString()}
-          </p>
-
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">
-              Shipping Information
-            </h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              We offer worldwide shipping for all our exclusive merchandise. All orders are
-              carefully packaged and shipped with tracking information provided.
+        <div className="space-y-8 text-gray-800">
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Shipping Methods</h2>
+            <p className="mb-4 leading-relaxed">
+              We offer worldwide shipping for all our exclusive merchandise. All orders are shipped
+              via reliable courier services to ensure safe delivery.
             </p>
-            <div className="bg-gray-50 mb-6 p-6 rounded-lg">
-              <p className="mb-2 font-medium text-black">Free Worldwide Shipping</p>
-              <p className="text-gray-700">
-                We provide complimentary shipping on all orders, regardless of destination or order
-                value.
-              </p>
+            <ul className="space-y-2 list-disc list-inside">
+              <li>Standard International Shipping (7-14 business days)</li>
+              <li>Express International Shipping (3-7 business days)</li>
+              <li>Domestic Japan Shipping (2-5 business days)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Shipping Costs</h2>
+            <p className="mb-4 leading-relaxed">
+              We are pleased to offer <strong>free worldwide shipping</strong> on all orders. There
+              are no minimum order requirements.
+            </p>
+            <ul className="space-y-2 list-disc list-inside">
+              <li>Free standard shipping worldwide</li>
+              <li>Free express shipping on orders over ¥10,000</li>
+              <li>No additional customs fees for most destinations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Processing Time</h2>
+            <p className="leading-relaxed">
+              Orders are typically processed within 1-3 business days. During peak seasons or
+              special releases, processing may take up to 5 business days. You will receive a
+              confirmation email once your order has been shipped.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Delivery Timeframes</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="mb-2 font-medium text-lg">Japan Domestic</h3>
+                <ul className="space-y-1 ml-4 list-disc list-inside">
+                  <li>Standard: 2-5 business days</li>
+                  <li>Express: 1-3 business days</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-2 font-medium text-lg">Asia Pacific</h3>
+                <ul className="space-y-1 ml-4 list-disc list-inside">
+                  <li>Standard: 5-10 business days</li>
+                  <li>Express: 3-7 business days</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-2 font-medium text-lg">North America & Europe</h3>
+                <ul className="space-y-1 ml-4 list-disc list-inside">
+                  <li>Standard: 7-14 business days</li>
+                  <li>Express: 5-10 business days</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-2 font-medium text-lg">Rest of World</h3>
+                <ul className="space-y-1 ml-4 list-disc list-inside">
+                  <li>Standard: 10-21 business days</li>
+                  <li>Express: 7-14 business days</li>
+                </ul>
+              </div>
             </div>
           </section>
 
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Processing Time</h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              Orders are processed within 1-3 business days after payment confirmation. During peak
-              seasons or for limited edition releases, processing may take up to 5 business days.
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Order Tracking</h2>
+            <p className="leading-relaxed">
+              Once your order is shipped, you will receive a tracking number via email. You can use
+              this number to track your package on our shipping partner&apos;s website.
             </p>
-            <ul className="mb-6 ml-6 text-gray-700 list-disc">
-              <li>Order confirmation: Immediate</li>
-              <li>Payment processing: 1-2 business days</li>
-              <li>Item preparation: 1-3 business days</li>
-              <li>Shipping dispatch: Same day as preparation completion</li>
+          </section>
+
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Shipping Restrictions</h2>
+            <p className="mb-4 leading-relaxed">
+              We ship to most countries worldwide. However, some restrictions may apply:
+            </p>
+            <ul className="space-y-2 list-disc list-inside">
+              <li>Remote or rural areas may have extended delivery times</li>
+              <li>Some countries may have import restrictions on certain materials</li>
+              <li>Customs delays may occur and are beyond our control</li>
+              <li>PO Box addresses may not be accepted for international shipments</li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Delivery Times</h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              Delivery times vary by destination. All shipments include tracking information sent to
-              your email address.
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Damaged or Lost Packages</h2>
+            <p className="leading-relaxed">
+              If your package arrives damaged or goes missing during transit, please contact us
+              immediately at info@frankfurtlin-store.com. We will work with our shipping partners to
+              resolve the issue and ensure you receive your merchandise.
             </p>
-
-            <div className="overflow-x-auto">
-              <table className="mb-6 border border-gray-300 w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="px-4 py-3 border border-gray-300 font-medium text-black text-left">
-                      Region
-                    </th>
-                    <th className="px-4 py-3 border border-gray-300 font-medium text-black text-left">
-                      Delivery Time
-                    </th>
-                    <th className="px-4 py-3 border border-gray-300 font-medium text-black text-left">
-                      Shipping Method
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">Japan</td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      1-3 business days
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      Express Domestic
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">Asia Pacific</td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      5-10 business days
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      International Express
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      North America
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      7-14 business days
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      International Express
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">Europe</td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      7-14 business days
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      International Express
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      Other Regions
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      10-21 business days
-                    </td>
-                    <td className="px-4 py-3 border border-gray-300 text-gray-700">
-                      International Standard
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </section>
 
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Packaging</h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              Every item is carefully packaged to ensure it arrives in perfect condition:
-            </p>
-            <ul className="mb-6 ml-6 text-gray-700 list-disc">
-              <li>Premium protective packaging materials</li>
-              <li>Moisture-resistant wrapping for clothing items</li>
-              <li>Branded packaging that reflects our aesthetic</li>
-              <li>Eco-friendly materials whenever possible</li>
-              <li>Special handling for limited edition items</li>
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">
-              Tracking Your Order
-            </h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              Once your order ships, you will receive:
-            </p>
-            <ul className="mb-6 ml-6 text-gray-700 list-disc">
-              <li>Shipping confirmation email with tracking number</li>
-              <li>Direct link to track your package</li>
-              <li>Estimated delivery date</li>
-              <li>Updates on delivery status</li>
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Customs and Duties</h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              For international orders, customers are responsible for any customs duties, taxes, or
-              fees imposed by their country. These charges are not included in our pricing and vary
-              by destination.
-            </p>
-            <div className="bg-yellow-50 mb-6 p-4 border-yellow-400 border-l-4">
-              <p className="text-yellow-800">
-                <strong>Note:</strong> Delivery times may be extended due to customs processing. We
-                recommend checking with your local customs office for specific requirements.
-              </p>
-            </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Delivery Issues</h2>
-            <p className="mb-4 text-gray-700 leading-relaxed">
-              If you experience any issues with your delivery:
-            </p>
-            <ul className="mb-6 ml-6 text-gray-700 list-disc">
-              <li>Contact us immediately if your package appears damaged</li>
-              <li>Report missing packages within 48 hours of expected delivery</li>
-              <li>Provide photos of any damaged items or packaging</li>
-              <li>Keep all original packaging until issue is resolved</li>
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="mb-6 font-bold text-black text-2xl tracking-wide">Contact Us</h2>
-            <p className="text-gray-700 leading-relaxed">
-              For shipping inquiries or issues, please contact us at:
-              <br />
-              Email: shipping@taichistore.com
-              <br />
-              Response time: Within 24 hours
-              <br />
-              Address: Tokyo, Japan
+          <section>
+            <h2 className="mb-4 font-semibold text-xl">Contact Us</h2>
+            <p className="leading-relaxed">
+              For any shipping-related questions or concerns, please contact us at
+              info@frankfurtlin-store.com
             </p>
           </section>
         </div>
       </div>
+
+      <Footer />
     </main>
   )
 }

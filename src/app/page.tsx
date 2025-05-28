@@ -1,9 +1,9 @@
 'use client'
 
 import BuyButton from '@/components/BuyButton'
+import Footer from '@/components/Footer'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 
 // Note: Since this is a client component, we'll need to handle SEO differently
 // We'll add a separate metadata export or use next/head for dynamic SEO
@@ -41,10 +41,7 @@ export default function Home() {
   )
 
   return (
-    <main
-      className="z-0 relative min-h-screen"
-      style={{ fontFamily: 'var(--font-shippori-mincho)' }}
-    >
+    <main className="z-0 relative min-h-screen">
       {/* Fixed Image Container - only fixed until real image is fully shown */}
       <motion.div className="-z-1 fixed flex justify-center items-center w-full h-full">
         {/* Line Art Image */}
@@ -246,98 +243,7 @@ export default function Home() {
         </section>
 
         {/* Footer Section */}
-        <motion.footer
-          className="bg-black py-16 text-white"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <div className="gap-8 grid md:grid-cols-4">
-              {/* Artist Name */}
-              <div className="md:col-span-2">
-                <h4 className="mb-4 font-light text-lg md:text-2xl tracking-wide">
-                  フランクフルト林 (Taichi Hayashi)
-                </h4>
-                <p className="text-gray-400 leading-relaxed">
-                  Official merchandise store featuring exclusive designs and premium quality
-                  apparel.
-                </p>
-              </div>
-
-              {/* Legal Links */}
-              <div>
-                <h5 className="mb-4 font-medium tracking-wide">Legal</h5>
-                <ul className="space-y-2 text-gray-400">
-                  <li>
-                    <a
-                      href="/privacy-policy"
-                      className="hover:text-white transition-colors duration-200"
-                    >
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/terms-of-service"
-                      className="hover:text-white transition-colors duration-200"
-                    >
-                      Terms of Service
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/shipping-policy"
-                      className="hover:text-white transition-colors duration-200"
-                    >
-                      Shipping Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Payment & Social */}
-              <div>
-                <h5 className="mb-4 font-medium tracking-wide">Connect</h5>
-                <div className="space-y-4">
-                  <div>
-                    <p className="mb-2 text-gray-400 text-sm">Payment Methods</p>
-                    <div className="flex space-x-2 h-6">
-                      <PaymentIcon type="Visa" format="flatRounded" />
-                      <PaymentIcon type="Mastercard" format="flatRounded" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="mb-2 text-gray-400 text-sm">Social Media</p>
-                    <div className="flex space-x-3">
-                      <a
-                        href="#"
-                        className="text-gray-400 hover:text-white transition-colors duration-200"
-                      >
-                        Instagram
-                      </a>
-                      <a
-                        href="#"
-                        className="text-gray-400 hover:text-white transition-colors duration-200"
-                      >
-                        Twitter
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Company Info */}
-            <div className="mt-12 pt-8 border-gray-800 border-t font-sans text-center">
-              <p className="text-gray-400 text-sm">
-                © 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </motion.footer>
+        <Footer />
       </motion.div>
     </main>
   )
