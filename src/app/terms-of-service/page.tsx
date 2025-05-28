@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,10 +10,12 @@ export const metadata: Metadata = {
 export default function TermsOfService() {
   return (
     <main className="bg-white min-h-screen">
+      <Navbar />
+
       {/* Header */}
-      <div className="bg-black py-8">
+      <div className="pt-24 md:pt-32">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="font-light text-white text-3xl md:text-4xl tracking-wide">
+          <h1 className="pb-8 border-gray-500 border-b font-bold text-3xl md:text-4xl tracking-wide">
             Terms of Service
           </h1>
         </div>

@@ -2,6 +2,7 @@
 
 import BuyButton from '@/components/BuyButton'
 import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 
@@ -42,6 +43,8 @@ export default function Home() {
 
   return (
     <main className="z-0 relative min-h-screen">
+      <Navbar showOnScroll={true} scrollThreshold={transitionEnd + 300} />
+
       {/* Fixed Image Container - only fixed until real image is fully shown */}
       <motion.div className="-z-1 fixed flex justify-center items-center w-full h-full">
         {/* Line Art Image */}
