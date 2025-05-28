@@ -1,34 +1,32 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import BuyButton from "@/components/BuyButton";
-import { useEffect, useState } from "react";
+import BuyButton from '@/components/BuyButton'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    setIsLoaded(true);
+    setIsLoaded(true)
 
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+      setScrollY(window.scrollY)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Calculate opacity for line art (fades out as user scrolls)
-  const lineArtOpacity = Math.max(0, 1 - scrollY / 400);
+  const lineArtOpacity = Math.max(0, 1 - scrollY / 400)
   // Calculate opacity for real photo (fades in as user scrolls)
-  const realPhotoOpacity = Math.min(1, scrollY / 400);
+  const realPhotoOpacity = Math.min(1, scrollY / 400)
 
   return (
-    <main
-      className="bg-white min-h-screen"
-      style={{ fontFamily: "var(--font-shippori-mincho)" }}
-    >
+    <main className="bg-white min-h-screen" style={{ fontFamily: 'var(--font-shippori-mincho)' }}>
       {/* Hero Section */}
       <section className="relative flex justify-center items-center h-screen overflow-hidden">
         {/* Line Art Image */}
@@ -36,10 +34,10 @@ export default function Home() {
           className="absolute inset-0 flex justify-center items-center transition-opacity duration-300"
           style={{ opacity: lineArtOpacity }}
         >
-          <div className="relative w-80 md:w-96 h-80 md:h-96">
+          <div className="relative w-80 md:w-128 h-80 md:h-128">
             <Image
-              src="/lineart.png"
-              alt="Takashi Yamamura Line Art"
+              src="/line.png"
+              alt="Taichi Hayashi Line Art"
               fill
               className="object-contain"
               priority
@@ -52,10 +50,10 @@ export default function Home() {
           className="absolute inset-0 flex justify-center items-center transition-opacity duration-300"
           style={{ opacity: realPhotoOpacity }}
         >
-          <div className="relative w-80 md:w-96 h-80 md:h-96">
+          <div className="relative w-80 md:w-128 h-80 md:h-128">
             <Image
-              src="/real.jpg"
-              alt="Takashi Yamamura"
+              src="/real.png"
+              alt="Taichi Hayashi"
               fill
               className="rounded-lg object-cover"
               priority
@@ -65,7 +63,7 @@ export default function Home() {
 
         {/* Name and Message */}
         <div
-          className={`absolute bottom-32 left-1/2 transform -translate-x-1/2 text-center transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`absolute bottom-32 left-1/2 transform -translate-x-1/2 text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <h1 className="mb-4 font-black text-black text-5xl md:text-7xl tracking-wide">
             フランクフルト林
@@ -77,9 +75,8 @@ export default function Home() {
             日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
           </p>
           <p className="mb-4 max-w-4xl font-light text-gray-700 text-lg md:text-xl leading-relaxed">
-            Discover exclusive merchandise from Japan&apos;s most captivating
-            actor. Limited edition items that reflect elegance and
-            sophistication.
+            Discover exclusive merchandise from Japan&apos;s most captivating actor. Limited edition
+            items that reflect elegance and sophistication.
           </p>
         </div>
 
@@ -107,12 +104,7 @@ export default function Home() {
             <div className="group relative">
               <div className="bg-white shadow-2xl rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-500 transform">
                 <div className="relative aspect-square">
-                  <Image
-                    src="/item1.jpg"
-                    alt="Signature T-Shirt"
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src="/item1.jpg" alt="Signature T-Shirt" fill className="object-cover" />
                 </div>
               </div>
             </div>
@@ -129,27 +121,24 @@ export default function Home() {
                 </h3>
 
                 <p className="mb-8 text-gray-600 text-lg leading-relaxed">
-                  Premium quality cotton t-shirt featuring exclusive designs.
-                  Each piece is carefully crafted to represent my unique style
-                  and aesthetic.
+                  Premium quality cotton t-shirt featuring exclusive designs. Each piece is
+                  carefully crafted to represent my unique style and aesthetic.
                 </p>
               </div>
 
               {/* Features */}
               <div className="space-y-4">
                 {[
-                  { label: "Material", value: "100% Premium Cotton" },
-                  { label: "Design", value: "Exclusive Artist Graphics" },
-                  { label: "Sizes", value: "S, M, L, XL, XXL" },
-                  { label: "Edition", value: "Limited Release" },
+                  { label: 'Material', value: '100% Premium Cotton' },
+                  { label: 'Design', value: 'Exclusive Artist Graphics' },
+                  { label: 'Sizes', value: 'S, M, L, XL, XXL' },
+                  { label: 'Edition', value: 'Limited Release' },
                 ].map((feature, index) => (
                   <div
                     key={index}
                     className="flex justify-between items-center py-3 border-gray-200 border-b"
                   >
-                    <span className="font-medium text-black">
-                      {feature.label}
-                    </span>
+                    <span className="font-medium text-black">{feature.label}</span>
                     <span className="text-gray-600">{feature.value}</span>
                   </div>
                 ))}
@@ -177,8 +166,7 @@ export default function Home() {
                 フランクフルト林 (Taichi Hayashi)
               </h4>
               <p className="text-gray-400 leading-relaxed">
-                Official merchandise store featuring exclusive designs and
-                premium quality apparel.
+                Official merchandise store featuring exclusive designs and premium quality apparel.
               </p>
             </div>
 
@@ -188,7 +176,7 @@ export default function Home() {
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a
-                    href="#"
+                    href="/privacy-policy"
                     className="hover:text-white transition-colors duration-200"
                   >
                     Privacy Policy
@@ -196,7 +184,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/terms-of-service"
                     className="hover:text-white transition-colors duration-200"
                   >
                     Terms of Service
@@ -204,7 +192,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/shipping-policy"
                     className="hover:text-white transition-colors duration-200"
                   >
                     Shipping Policy
@@ -219,13 +207,9 @@ export default function Home() {
               <div className="space-y-4">
                 <div>
                   <p className="mb-2 text-gray-400 text-sm">Payment Methods</p>
-                  <div className="flex space-x-2">
-                    <div className="flex justify-center items-center bg-white rounded w-8 h-5 font-bold text-black text-xs">
-                      💳
-                    </div>
-                    <div className="flex justify-center items-center bg-white rounded w-8 h-5 font-bold text-black text-xs">
-                      🏦
-                    </div>
+                  <div className="flex space-x-2 h-6">
+                    <PaymentIcon type="Visa" format="flatRounded" />
+                    <PaymentIcon type="Mastercard" format="flatRounded" />
                   </div>
                 </div>
 
@@ -253,12 +237,11 @@ export default function Home() {
           {/* Company Info */}
           <div className="mt-12 pt-8 border-gray-800 border-t text-center">
             <p className="text-gray-400 text-sm">
-              © 2024 フランクフルト林 (Taichi Hayashi) Official Store. All
-              rights reserved.
+              © 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
     </main>
-  );
+  )
 }
