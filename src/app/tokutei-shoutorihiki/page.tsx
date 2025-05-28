@@ -15,7 +15,7 @@ export default function TokuteiShoutorihiki() {
       <Breadcrumb />
 
       {/* Header */}
-      <div className="py-8 pt-16 md:pt-24">
+      <div className="py-8">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="pb-8 border-gray-500 border-b font-bold text-3xl md:text-4xl tracking-wide">
             特定商取引法に基づく表記
