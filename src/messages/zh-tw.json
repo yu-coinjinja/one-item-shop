@@ -58,7 +58,10 @@
   "footer": {
     "copyright": "© 2024 Taichi Hayashi. 保留所有權利。",
     "contact": "聯絡我們",
-    "support": "支援"
+    "support": "支援",
+    "legal": "法律",
+    "paymentMethods": "付款方式",
+    "social": "社群媒體"
   },
   "language": {
     "select": "語言",

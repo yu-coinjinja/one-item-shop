@@ -58,7 +58,10 @@
   "footer": {
     "copyright": "© 2024 Taichi Hayashi. 모든 권리 보유.",
     "contact": "연락처",
-    "support": "지원"
+    "support": "지원",
+    "legal": "법률",
+    "paymentMethods": "결제 방법",
+    "social": "소셜"
   },
   "language": {
     "select": "언어",

@@ -124,8 +124,9 @@ const CopyrightSection = ({ copyright }: { copyright: string }) => (
 // Main component
 export default function Footer() {
   const tNav = useTranslations('navigation')
+  const tFooter = useTranslations('footer')
 
-  // Create footer data using translations but keep original social links and styling
+  // Create footer data using translations
   const footerData = {
     artist: {
       name: 'フランクフルト林 (Taichi Hayashi)',
@@ -133,7 +134,7 @@ export default function Footer() {
         'Official merchandise store featuring exclusive designs and premium quality apparel.',
     },
     legal: {
-      title: 'リーガル',
+      title: tFooter('legal'),
       links: [
         { name: tNav('privacy'), href: '/privacy-policy' as const },
         { name: tNav('terms'), href: '/terms-of-service' as const },
@@ -141,11 +142,11 @@ export default function Footer() {
       ],
     },
     payment: {
-      title: '支払い方法',
+      title: tFooter('paymentMethods'),
       methods: ['Visa', 'Mastercard'] as const,
     },
     social: {
-      title: 'SNS',
+      title: tFooter('social'),
       links: [
         { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
         { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },
@@ -153,7 +154,7 @@ export default function Footer() {
         { name: 'X', href: 'https://x.com/dekkai_chimpo', icon: 'x' },
       ],
     },
-    copyright: '© 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.',
+    copyright: tFooter('copyright'),
   }
 
   return (

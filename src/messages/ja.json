@@ -58,7 +58,10 @@
   "footer": {
     "copyright": "© 2024 フランクフルト林. All rights reserved.",
     "contact": "お問い合わせ",
-    "support": "サポート"
+    "support": "サポート",
+    "legal": "リーガル",
+    "paymentMethods": "支払い方法",
+    "social": "SNS"
   },
   "language": {
     "select": "言語",
