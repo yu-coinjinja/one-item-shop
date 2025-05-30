@@ -26,11 +26,11 @@ body {
 }
 
 .font-sans {
-  font-family: var(--font-noto-sans-jp);
+  font-family: var(--font-sans);
 }
 
 .font-serif {
-  font-family: var(--font-shippori-mincho);
+  font-family: var(--font-serif);
 }
 
 main {

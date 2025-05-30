@@ -3,9 +3,13 @@ import {
   Shippori_Mincho,
   Noto_Sans_JP,
   Playfair_Display,
+  Noto_Sans,
   Noto_Serif_SC,
+  Noto_Sans_SC,
   Noto_Serif_TC,
+  Noto_Sans_TC,
   Noto_Serif_KR,
+  Noto_Sans_KR,
 } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -20,7 +24,7 @@ const shipporiMincho = Shippori_Mincho({
 })
 
 const notoSansJP = Noto_Sans_JP({
-  variable: '--font-noto-sans-jp',
+  variable: '--font-sans',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
@@ -32,9 +36,21 @@ const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
 })
 
+const notoSans = Noto_Sans({
+  variable: '--font-sans',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
 // Chinese Simplified fonts
 const notoSerifSC = Noto_Serif_SC({
   variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+const notoSansSC = Noto_Sans_SC({
+  variable: '--font-sans',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
@@ -46,9 +62,21 @@ const notoSerifTC = Noto_Serif_TC({
   subsets: ['latin'],
 })
 
+const notoSansTC = Noto_Sans_TC({
+  variable: '--font-sans',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
 // Korean fonts
 const notoSerifKR = Noto_Serif_KR({
   variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+const notoSansKR = Noto_Sans_KR({
+  variable: '--font-sans',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
@@ -59,13 +87,13 @@ function getFontsForLocale(locale: string) {
     case 'ja':
       return `${shipporiMincho.variable} ${notoSansJP.variable}`
     case 'zh-cn':
-      return `${notoSerifSC.variable}`
+      return `${notoSerifSC.variable} ${notoSansSC.variable}`
     case 'zh-tw':
-      return `${notoSerifTC.variable}`
+      return `${notoSerifTC.variable} ${notoSansTC.variable}`
     case 'ko':
-      return `${notoSerifKR.variable}`
+      return `${notoSerifKR.variable} ${notoSansKR.variable}`
     default: // en and fallback
-      return `${playfairDisplay.variable}`
+      return `${playfairDisplay.variable} ${notoSans.variable}`
   }
 }
 
