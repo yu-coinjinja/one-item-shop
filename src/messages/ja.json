@@ -71,6 +71,10 @@
     "paymentMethods": "支払い方法",
     "social": "SNS"
   },
+  "artist": {
+    "name": "フランクフルト林 (Taichi Hayashi)",
+    "description": "独占デザインとプレミアム品質のアパレルを特徴とする公式グッズストア。"
+  },
   "language": {
     "select": "言語",
     "english": "English",

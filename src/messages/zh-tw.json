@@ -71,6 +71,10 @@
     "paymentMethods": "付款方式",
     "social": "社群媒體"
   },
+  "artist": {
+    "name": "フランクフルト林 (Taichi Hayashi)",
+    "description": "官方商品店，提供獨家設計和優質服裝。"
+  },
   "language": {
     "select": "語言",
     "english": "English",

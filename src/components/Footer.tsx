@@ -125,13 +125,13 @@ const CopyrightSection = ({ copyright }: { copyright: string }) => (
 export default function Footer() {
   const tNav = useTranslations('navigation')
   const tFooter = useTranslations('footer')
+  const tArtist = useTranslations('artist')
 
   // Create footer data using translations
   const footerData = {
     artist: {
-      name: 'フランクフルト林 (Taichi Hayashi)',
-      description:
-        'Official merchandise store featuring exclusive designs and premium quality apparel.',
+      name: tArtist('name'),
+      description: tArtist('description'),
     },
     legal: {
       title: tFooter('legal'),

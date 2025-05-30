@@ -71,6 +71,10 @@
     "paymentMethods": "Payment Methods",
     "social": "Social"
   },
+  "artist": {
+    "name": "フランクフルト林 (Taichi Hayashi)",
+    "description": "Official merchandise store featuring exclusive designs and premium quality apparel."
+  },
   "language": {
     "select": "Language",
     "english": "English",
