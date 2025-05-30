@@ -2,18 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { ArrowLeftIcon, HomeIcon } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
-// Data layer - Page mapping
-const pageMapping = {
-  '/': 'Home',
-  '/privacy-policy': 'Privacy Policy',
-  '/terms-of-service': 'Terms of Service',
-  '/shipping-policy': 'Shipping Policy',
-  '/tokutei-shoutorihiki': '特定商取引法',
-  '/success': 'Order Success',
-}
 
 interface BreadcrumbProps {
   customTitle?: string
@@ -21,35 +12,58 @@ interface BreadcrumbProps {
 }
 
 // Visual layer - Breadcrumb components
-const BackButton = () => (
-  <Link
-    href="/"
-    className="inline-flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
-  >
-    <ArrowLeftIcon className="w-4 h-4" />
-    <span className="font-medium text-sm">Back to Home</span>
-  </Link>
-)
+const BackButton = () => {
+  const locale = useLocale()
+
+  return (
+    <Link
+      href={`/${locale}`}
+      className="inline-flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
+    >
+      <ArrowLeftIcon className="w-4 h-4" />
+      <span className="font-medium text-sm">{useTranslations('navigation')('home')}</span>
+    </Link>
+  )
+}
 
 const BreadcrumbPath = ({ pathname, customTitle }: { pathname: string; customTitle?: string }) => {
+  const t = useTranslations('navigation')
+  const locale = useLocale()
+
+  // Remove locale from pathname and filter out empty segments
   const pathSegments = pathname.split('/').filter(Boolean)
+  const nonLocaleSegments = pathSegments.filter(segment => segment !== locale)
+
+  // Mapping of route segments to translation keys
+  const routeToTranslationKey: Record<string, string> = {
+    'privacy-policy': 'privacy',
+    'terms-of-service': 'terms',
+    'shipping-policy': 'shipping',
+    'tokutei-shoutorihiki': 'tokutei',
+    success: 'success',
+  }
 
   return (
     <nav className="flex items-center space-x-2 text-sm">
-      <Link href="/" className="text-gray-500 hover:text-black transition-colors duration-200">
+      <Link
+        href={`/${locale}`}
+        className="text-gray-500 hover:text-black transition-colors duration-200"
+      >
         <HomeIcon className="w-4 h-4" />
       </Link>
 
-      {pathSegments.map((segment, index) => {
-        const path = '/' + pathSegments.slice(0, index + 1).join('/')
-        const isLast = index === pathSegments.length - 1
+      {nonLocaleSegments.map((segment, index) => {
+        // Build the full path including locale for navigation
+        const fullPath = `/${locale}/${nonLocaleSegments.slice(0, index + 1).join('/')}`
+        const isLast = index === nonLocaleSegments.length - 1
+
+        // Get the translated title
+        const translationKey = routeToTranslationKey[segment]
         const title =
-          customTitle && isLast
-            ? customTitle
-            : pageMapping[path as keyof typeof pageMapping] || segment
+          customTitle && isLast ? customTitle : translationKey ? t(translationKey) : segment
 
         return (
-          <div key={path} className="flex items-center space-x-2">
+          <div key={fullPath} className="flex items-center space-x-2">
             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
@@ -61,7 +75,7 @@ const BreadcrumbPath = ({ pathname, customTitle }: { pathname: string; customTit
               <span className="font-medium text-gray-900">{title}</span>
             ) : (
               <Link
-                href={path}
+                href={fullPath}
                 className="text-gray-500 hover:text-black transition-colors duration-200"
               >
                 {title}
@@ -76,9 +90,10 @@ const BreadcrumbPath = ({ pathname, customTitle }: { pathname: string; customTit
 
 export default function Breadcrumb({ customTitle, showBackButton = true }: BreadcrumbProps) {
   const pathname = usePathname()
+  const locale = useLocale()
 
   // Don't show breadcrumb on home page
-  if (pathname === '/') {
+  if (pathname === `/${locale}` || pathname === '/') {
     return null
   }
 

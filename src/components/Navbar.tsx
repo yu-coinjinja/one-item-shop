@@ -92,7 +92,7 @@ const MobileMenu = ({
       height: isOpen ? 'auto' : 0,
     }}
     transition={{ duration: 0.3 }}
-    className="md:hidden bg-white border-gray-200 border-t overflow-hidden"
+    className="md:hidden bg-white/90 border-gray-200 border-t overflow-hidden"
   >
     <div className="space-y-1 px-2 pt-2 pb-3">
       {links.map(link => (
