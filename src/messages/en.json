@@ -5,7 +5,8 @@
     "terms": "Terms of Service",
     "shipping": "Shipping Policy",
     "tokutei": "Commercial Transaction Act",
-    "success": "Order Success"
+    "success": "Order Success",
+    "brandName": "TH Official Store"
   },
   "homepage": {
     "hero": {
@@ -56,7 +57,7 @@
     "close": "Close"
   },
   "footer": {
-    "copyright": "© 2024 Taichi Hayashi. All rights reserved.",
+    "copyright": "© 2025 Taichi Hayashi. All rights reserved.",
     "contact": "Contact",
     "support": "Support",
     "legal": "Legal",

@@ -31,7 +31,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ href, children }) => (
       <a
         href={href}
-        className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-300 dark:text-blue-400 underline transition-colors"
+        className="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-300 dark:text-indigo-400 hover:underline no-underline transition-colors"
         target={href?.startsWith('http') ? '_blank' : undefined}
         rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
       >

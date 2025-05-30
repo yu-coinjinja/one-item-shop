@@ -5,7 +5,8 @@
     "terms": "服务条款",
     "shipping": "配送政策",
     "tokutei": "特定商业交易法",
-    "success": "订单成功"
+    "success": "订单成功",
+    "brandName": "TH 官方店"
   },
   "homepage": {
     "hero": {
@@ -56,7 +57,7 @@
     "close": "关闭"
   },
   "footer": {
-    "copyright": "© 2024 Taichi Hayashi. 保留所有权利。",
+    "copyright": "© 2025 Taichi Hayashi. 保留所有权利。",
     "contact": "联系我们",
     "support": "支持",
     "legal": "法律",

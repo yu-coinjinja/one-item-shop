@@ -5,7 +5,8 @@
     "terms": "이용약관",
     "shipping": "배송정책",
     "tokutei": "특정상거래법",
-    "success": "주문 성공"
+    "success": "주문 성공",
+    "brandName": "TH 공식스토어"
   },
   "homepage": {
     "hero": {
@@ -56,7 +57,7 @@
     "close": "닫기"
   },
   "footer": {
-    "copyright": "© 2024 Taichi Hayashi. 모든 권리 보유.",
+    "copyright": "© 2025 Taichi Hayashi. 모든 권리 보유.",
     "contact": "연락처",
     "support": "지원",
     "legal": "법률",

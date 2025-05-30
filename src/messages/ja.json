@@ -5,7 +5,8 @@
     "terms": "利用規約",
     "shipping": "配送ポリシー",
     "tokutei": "特定商取引法",
-    "success": "注文完了"
+    "success": "注文完了",
+    "brandName": "TH オフィシャルストア"
   },
   "homepage": {
     "hero": {
@@ -56,7 +57,7 @@
     "close": "閉じる"
   },
   "footer": {
-    "copyright": "© 2024 フランクフルト林. All rights reserved.",
+    "copyright": "© 2025 フランクフルト林. All rights reserved.",
     "contact": "お問い合わせ",
     "support": "サポート",
     "legal": "リーガル",

@@ -7,7 +7,7 @@ import { Link } from '@/i18n/routing'
 
 type FooterLink = {
   name: string
-  href: '/privacy-policy' | '/terms-of-service' | '/shipping-policy'
+  href: '/privacy-policy' | '/terms-of-service' | '/shipping-policy' | '/tokutei-shoutorihiki'
 }
 
 // Custom SVG Icons
@@ -139,6 +139,7 @@ export default function Footer() {
         { name: tNav('privacy'), href: '/privacy-policy' as const },
         { name: tNav('terms'), href: '/terms-of-service' as const },
         { name: tNav('shipping'), href: '/shipping-policy' as const },
+        { name: tNav('tokutei'), href: '/tokutei-shoutorihiki' as const },
       ],
     },
     payment: {

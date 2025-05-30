@@ -119,7 +119,7 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 100 }: 
   // Create navigation data using translations
   const navigationData = {
     brand: {
-      name: 'TH オフィシャル',
+      name: t('brandName'),
     },
     links: [
       { name: t('shipping'), href: '/shipping-policy' as const },
