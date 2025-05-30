@@ -6,7 +6,7 @@ export const routing = defineRouting({
   locales: ['en', 'ja', 'zh-cn', 'zh-tw', 'ko'],
 
   // Used when no locale matches
-  defaultLocale: 'en',
+  defaultLocale: 'ja',
 
   // The `pathnames` object holds pairs of internal and
   // external paths. Based on the locale, the external
