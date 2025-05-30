@@ -149,7 +149,11 @@ export default function Footer() {
     social: {
       title: tFooter('social'),
       links: [
-        { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
+        {
+          name: 'Instagram',
+          href: 'https://www.instagram.com/frankufurutohayashi',
+          icon: 'instagram',
+        },
         { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },
         { name: 'OnlyFans', href: 'https://onlyfans.com/ffhys', icon: 'onlyfans' },
         { name: 'X', href: 'https://x.com/dekkai_chimpo', icon: 'x' },
