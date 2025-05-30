@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Takashi Yamamura Official Store',
-  description: 'Official merchandise store for Takashi Yamamura',
+  title: 'TH オフィシャルストア',
+  description: 'Official merchandise store for Taichi Hayashi',
 }
 
 // This layout only renders when no locale is matched

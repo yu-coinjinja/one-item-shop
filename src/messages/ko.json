@@ -6,8 +6,8 @@
     "shipping": "배송정책"
   },
   "product": {
-    "title": "야마무라 타카시 공식 티셔츠",
-    "description": "야마무라 타카시의 독점 디자인을 사용한 프리미엄 품질의 티셔츠",
+    "title": "Taichi Hayashi 공식 티셔츠",
+    "description": "Taichi Hayashi의 독점 디자인을 사용한 프리미엄 품질의 티셔츠",
     "price": "가격",
     "buyNow": "지금 구매",
     "loading": "로딩 중...",
@@ -30,7 +30,7 @@
     "close": "닫기"
   },
   "footer": {
-    "copyright": "© 2024 야마무라 타카시. 모든 권리 보유.",
+    "copyright": "© 2024 Taichi Hayashi. 모든 권리 보유.",
     "contact": "문의하기",
     "support": "고객지원"
   },

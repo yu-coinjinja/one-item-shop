@@ -35,11 +35,11 @@ export async function generateMetadata({
   const { locale } = await params
 
   const titles = {
-    en: 'Takashi Yamamura Official Store | Exclusive Merchandise',
-    ja: '山村隆志 公式ストア | 限定グッズ',
-    'zh-cn': '山村隆志 官方商店 | 独家商品',
-    'zh-tw': '山村隆志 官方商店 | 獨家商品',
-    ko: '야마무라 타카시 공식 스토어 | 독점 상품',
+    en: 'TH Official Store | Exclusive Merchandise',
+    ja: 'TH オフィシャルストア | 限定グッズ',
+    'zh-cn': 'TH 官方商店 | 独家商品',
+    'zh-tw': 'TH 官方商店 | 獨家商品',
+    ko: 'TH 공식 스토어 | 독점 상품',
   }
 
   const descriptions = {
@@ -57,8 +57,8 @@ export async function generateMetadata({
     },
     description: descriptions[locale as keyof typeof descriptions] || descriptions.en,
     keywords: [
-      '山村隆志',
-      'Takashi Yamamura',
+      'フランクフルト林',
+      'Taichi Hayashi',
       'Japanese idol',
       'exclusive merchandise',
       'limited edition',
@@ -67,9 +67,9 @@ export async function generateMetadata({
       'idol merchandise',
       'official store',
     ],
-    authors: [{ name: '山村隆志 (Takashi Yamamura)' }],
-    creator: '山村隆志 (Takashi Yamamura)',
-    publisher: 'Takashi Yamamura Official Store',
+    authors: [{ name: 'フランクフルト林 (Taichi Hayashi)' }],
+    creator: 'フランクフルト林 (Taichi Hayashi)',
+    publisher: 'TH オフィシャルストア',
     formatDetection: {
       email: false,
       address: false,
@@ -92,13 +92,13 @@ export async function generateMetadata({
       url: `/${locale}`,
       title: titles[locale as keyof typeof titles] || titles.en,
       description: descriptions[locale as keyof typeof descriptions] || descriptions.en,
-      siteName: 'Takashi Yamamura Official Store',
+      siteName: 'TH オフィシャルストア',
       images: [
         {
           url: '/og.png',
           width: 1200,
           height: 630,
-          alt: 'Takashi Yamamura Official Merchandise',
+          alt: 'Taichi Hayashi Official Merchandise',
         },
       ],
     },
@@ -143,7 +143,7 @@ export default async function LocaleLayout({
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Store',
-    name: 'Takashi Yamamura Official Store',
+    name: 'TH オフィシャルストア',
     description:
       "Discover exclusive merchandise from Japan's most captivating idol. Limited edition items that reflect elegance and sophistication.",
     url: process.env.NEXT_PUBLIC_STORE_DOMAIN || 'http://localhost:3000',

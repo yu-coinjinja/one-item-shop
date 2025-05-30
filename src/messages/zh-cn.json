@@ -6,8 +6,8 @@
     "shipping": "配送政策"
   },
   "product": {
-    "title": "山村隆志 官方T恤",
-    "description": "采用山村隆志独家设计的高品质T恤",
+    "title": "Taichi Hayashi 官方T恤",
+    "description": "采用Taichi Hayashi独家设计的高品质T恤",
     "price": "价格",
     "buyNow": "立即购买",
     "loading": "加载中...",
@@ -30,7 +30,7 @@
     "close": "关闭"
   },
   "footer": {
-    "copyright": "© 2024 山村隆志. 保留所有权利。",
+    "copyright": "© 2024 Taichi Hayashi. 保留所有权利。",
     "contact": "联系我们",
     "support": "客服支持"
   },

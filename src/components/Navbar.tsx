@@ -119,7 +119,7 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 100 }: 
   // Create navigation data using translations
   const navigationData = {
     brand: {
-      name: 'Takashi Yamamura Official Store',
+      name: 'TH オフィシャルストア',
     },
     links: [
       { name: t('shipping'), href: '/shipping-policy' as const },
