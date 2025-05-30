@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 // This layout only renders when no locale is matched
 // The middleware will handle redirecting to the default locale
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html>
-      <body>{children}</body>
-    </html>
-  )
+  return children
 }
