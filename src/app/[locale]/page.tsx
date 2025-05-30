@@ -49,7 +49,7 @@ export default function Home() {
       <motion.div className="-z-1 fixed flex justify-center items-center w-full h-full">
         {/* Line Art Image */}
         <motion.div
-          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[800px] h-80 md:h-[800px] -translate-x-1/2 -translate-y-1/2"
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[600px] lg:w-[800px] h-80 md:h-[600px] lg:h-[800px] -translate-x-1/2 -translate-y-1/2"
           style={{ opacity: lineArtOpacity, scale: imageScale }}
         >
           <Image
@@ -63,7 +63,7 @@ export default function Home() {
 
         {/* Real Photo */}
         <motion.div
-          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[800px] h-80 md:h-[800px] -translate-x-1/2 -translate-y-1/2"
+          className="top-1/2 left-1/2 absolute inset-0 flex justify-center items-center w-80 md:w-[600px] lg:w-[800px] h-80 md:h-[600px] lg:h-[800px] -translate-x-1/2 -translate-y-1/2"
           style={{ opacity: realPhotoOpacity, scale: imageScale }}
         >
           <Image

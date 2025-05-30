@@ -158,7 +158,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-black py-16 text-white"
+      className="bg-black pt-16 pb-10 text-white"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
