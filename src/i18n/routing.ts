@@ -19,6 +19,7 @@ export const routing = defineRouting({
     '/privacy-policy': '/privacy-policy',
     '/terms-of-service': '/terms-of-service',
     '/shipping-policy': '/shipping-policy',
+    '/tokutei-shoutorihiki': '/tokutei-shoutorihiki',
   },
 })
 

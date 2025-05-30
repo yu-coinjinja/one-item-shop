@@ -9,7 +9,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 type NavLink = {
   name: string
-  href: '/shipping-policy' | '/privacy-policy' | '/terms-of-service'
+  href: '/shipping-policy' | '/privacy-policy' | '/terms-of-service' | '/tokutei-shoutorihiki'
 }
 
 interface NavbarProps {
@@ -125,6 +125,7 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 100 }: 
       { name: t('shipping'), href: '/shipping-policy' as const },
       { name: t('privacy'), href: '/privacy-policy' as const },
       { name: t('terms'), href: '/terms-of-service' as const },
+      { name: t('tokutei'), href: '/tokutei-shoutorihiki' as const },
     ],
   }
 

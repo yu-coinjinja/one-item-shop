@@ -3,7 +3,8 @@
     "home": "Home",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "shipping": "Shipping Policy"
+    "shipping": "Shipping Policy",
+    "tokutei": "Commercial Transaction Act"
   },
   "product": {
     "title": "Taichi Hayashi Official T-Shirt",
@@ -35,7 +36,7 @@
     "support": "Support"
   },
   "language": {
-    "select": "Select Language",
+    "select": "Language",
     "english": "English",
     "japanese": "日本語",
     "simplifiedChinese": "简体中文",

@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 font-medium text-gray-700 hover:text-gray-900 text-sm transition-colors"
+        className="flex items-center space-x-2 px-3 py-2 font-medium text-gray-700 hover:text-gray-900 text-sm transition-colors cursor-pointer"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

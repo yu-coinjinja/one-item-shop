@@ -3,7 +3,8 @@
     "home": "홈",
     "privacy": "개인정보처리방침",
     "terms": "이용약관",
-    "shipping": "배송정책"
+    "shipping": "배송정책",
+    "tokutei": "특정상거래법"
   },
   "product": {
     "title": "Taichi Hayashi 공식 티셔츠",
@@ -35,7 +36,7 @@
     "support": "고객지원"
   },
   "language": {
-    "select": "언어 선택",
+    "select": "언어",
     "english": "English",
     "japanese": "日本語",
     "simplifiedChinese": "简体中文",

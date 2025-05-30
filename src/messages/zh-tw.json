@@ -3,7 +3,8 @@
     "home": "首頁",
     "privacy": "隱私政策",
     "terms": "服務條款",
-    "shipping": "配送政策"
+    "shipping": "配送政策",
+    "tokutei": "特定商業交易法"
   },
   "product": {
     "title": "Taichi Hayashi 官方T恤",
@@ -35,7 +36,7 @@
     "support": "客服支援"
   },
   "language": {
-    "select": "選擇語言",
+    "select": "語言",
     "english": "English",
     "japanese": "日本語",
     "simplifiedChinese": "简体中文",

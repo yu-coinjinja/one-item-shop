@@ -3,7 +3,8 @@
     "home": "ホーム",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
-    "shipping": "配送について"
+    "shipping": "配送について",
+    "tokutei": "特定商取引法"
   },
   "product": {
     "title": "フランクフルト林 公式Tシャツ",
@@ -35,7 +36,7 @@
     "support": "サポート"
   },
   "language": {
-    "select": "言語を選択",
+    "select": "言語",
     "english": "English",
     "japanese": "日本語",
     "simplifiedChinese": "简体中文",
