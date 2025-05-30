@@ -1,9 +1,8 @@
-import { notFound } from 'next/navigation'
+import Breadcrumb from '@/components/Breadcrumb'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
-import Breadcrumb from '@/components/Breadcrumb'
-import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -27,7 +26,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TermsOfServicePage({ params }: Props) {
   const { locale } = await params
-  const t = await getTranslations('navigation')
 
   // Dynamically import the locale-specific MDX content
   let MDXContent
@@ -48,14 +46,6 @@ export default async function TermsOfServicePage({ params }: Props) {
     <main className="bg-white min-h-screen">
       <Navbar />
       <Breadcrumb />
-
-      <div className="py-8">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="pb-8 border-gray-500 border-b font-bold text-3xl md:text-4xl tracking-wide">
-            {t('terms')}
-          </h1>
-        </div>
-      </div>
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
         <MDXContent />

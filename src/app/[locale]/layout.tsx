@@ -1,13 +1,20 @@
 import type { Metadata } from 'next'
-import { Shippori_Mincho, Noto_Sans_JP } from 'next/font/google'
+import {
+  Shippori_Mincho,
+  Noto_Sans_JP,
+  Playfair_Display,
+  Noto_Serif_SC,
+  Noto_Serif_TC,
+  Noto_Serif_KR,
+} from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
-import './globals.css'
 
-const shipporiSans = Shippori_Mincho({
-  variable: '--font-shippori-mincho',
+// Japanese fonts
+const shipporiMincho = Shippori_Mincho({
+  variable: '--font-serif',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
@@ -17,6 +24,50 @@ const notoSansJP = Noto_Sans_JP({
   weight: ['400', '700'],
   subsets: ['latin'],
 })
+
+// English and other Latin script fonts
+const playfairDisplay = Playfair_Display({
+  variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+// Chinese Simplified fonts
+const notoSerifSC = Noto_Serif_SC({
+  variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+// Chinese Traditional fonts
+const notoSerifTC = Noto_Serif_TC({
+  variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+// Korean fonts
+const notoSerifKR = Noto_Serif_KR({
+  variable: '--font-serif',
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
+
+// Function to get fonts based on locale
+function getFontsForLocale(locale: string) {
+  switch (locale) {
+    case 'ja':
+      return `${shipporiMincho.variable} ${notoSansJP.variable}`
+    case 'zh-cn':
+      return `${notoSerifSC.variable}`
+    case 'zh-tw':
+      return `${notoSerifTC.variable}`
+    case 'ko':
+      return `${notoSerifKR.variable}`
+    default: // en and fallback
+      return `${playfairDisplay.variable}`
+  }
+}
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
@@ -161,7 +212,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${shipporiSans.variable} ${notoSansJP.variable}  antialiased`}>
+      <body className={`${getFontsForLocale(locale)} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
