@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { routing, usePathname, useRouter } from '@/i18n/routing'
+import { Languages } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { usePathname, useRouter } from '@/i18n/routing'
-import { routing } from '@/i18n/routing'
+import { useState } from 'react'
 
 const localeNames = {
   en: 'English',
@@ -30,15 +30,8 @@ export default function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 font-medium text-gray-700 hover:text-gray-900 text-sm transition-colors cursor-pointer"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-          />
-        </svg>
-        <span>{t('select')}</span>
+        <Languages className="w-4 h-4" />
+        <span className="hidden sm:block">{t('select')}</span>
         <svg
           className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"

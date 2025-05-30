@@ -88,7 +88,7 @@ const BreadcrumbPath = ({ pathname, customTitle }: { pathname: string; customTit
   )
 }
 
-export default function Breadcrumb({ customTitle, showBackButton = true }: BreadcrumbProps) {
+export default function Breadcrumb({ customTitle, showBackButton = false }: BreadcrumbProps) {
   const pathname = usePathname()
   const locale = useLocale()
 

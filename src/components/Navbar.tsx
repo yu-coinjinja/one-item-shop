@@ -21,7 +21,7 @@ interface NavbarProps {
 const BrandLogo = ({ brandName }: { brandName: string }) => (
   <Link
     href="/"
-    className="flex items-center space-x-2 font-bold text-gray-900 hover:text-gray-700 text-xl transition-colors"
+    className="flex flex-1 items-center space-x-2 font-bold text-gray-900 hover:text-gray-700 text-xl transition-colors"
   >
     <span>{brandName}</span>
   </Link>
@@ -119,7 +119,7 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 100 }: 
   // Create navigation data using translations
   const navigationData = {
     brand: {
-      name: 'TH オフィシャルストア',
+      name: 'TH オフィシャル',
     },
     links: [
       { name: t('shipping'), href: '/shipping-policy' as const },

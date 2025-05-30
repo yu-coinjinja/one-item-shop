@@ -98,9 +98,6 @@ src/
 ├── components/
 │   ├── ui/               # Reusable UI components
 │   └── mdx/              # MDX-specific components
-│       ├── LegalLayout.tsx    # Layout for legal pages
-│       ├── PolicySection.tsx  # Policy section component
-│       └── ContactInfo.tsx    # Localized contact information
 ```
 
 ## Content Localization Strategy
