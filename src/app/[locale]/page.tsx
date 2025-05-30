@@ -5,12 +5,14 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 // Note: Since this is a client component, we'll need to handle SEO differently
 // We'll add a separate metadata export or use next/head for dynamic SEO
 
 export default function Home() {
   const { scrollY } = useScroll()
+  const t = useTranslations('homepage')
 
   // Animation breakpoints
   const transitionStart = 200
@@ -112,7 +114,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              フランクフルト林
+              {t('hero.title')}
             </motion.h1>
             <motion.h2
               className="mb-6 font-light text-black text-2xl md:text-3xl tracking-wide"
@@ -121,7 +123,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Taichi Hayashi
+              {t('hero.subtitle')}
             </motion.h2>
             <motion.p
               className="max-w-5xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
@@ -130,7 +132,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
+              {t('hero.description')}
             </motion.p>
           </div>
         </section>
@@ -146,7 +148,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="mb-6 font-black text-black text-4xl md:text-5xl tracking-wide">
-                限定コレクション
+                {t('collection.title')}
               </h2>
               <div className="bg-black mx-auto w-24 h-px"></div>
             </motion.div>
@@ -167,7 +169,12 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="relative aspect-square">
-                    <Image src="/item1.jpg" alt="Signature T-Shirt" fill className="object-cover" />
+                    <Image
+                      src="/item1.jpg"
+                      alt={t('collection.productName')}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </motion.div>
               </motion.div>
@@ -182,26 +189,37 @@ export default function Home() {
               >
                 <div>
                   <div className="inline-block bg-black mb-6 px-4 py-2 font-medium text-white text-sm tracking-wide">
-                    LIMITED EDITION
+                    {t('collection.limitedEdition')}
                   </div>
 
                   <h3 className="mb-4 font-light text-black text-3xl md:text-4xl tracking-wide">
-                    Signature T-Shirt
+                    {t('collection.productName')}
                   </h3>
 
                   <p className="mb-8 text-gray-600 text-lg leading-relaxed">
-                    Premium quality cotton t-shirt featuring exclusive designs. Each piece is
-                    carefully crafted to represent my unique style and aesthetic.
+                    {t('collection.productDescription')}
                   </p>
                 </div>
 
                 {/* Features */}
                 <div className="space-y-4">
                   {[
-                    { label: 'Material', value: '100% Premium Cotton' },
-                    { label: 'Design', value: 'Exclusive Artist Graphics' },
-                    { label: 'Sizes', value: 'S, M, L, XL, XXL' },
-                    { label: 'Edition', value: 'Limited Release' },
+                    {
+                      label: t('collection.features.material'),
+                      value: t('collection.features.materialValue'),
+                    },
+                    {
+                      label: t('collection.features.design'),
+                      value: t('collection.features.designValue'),
+                    },
+                    {
+                      label: t('collection.features.sizes'),
+                      value: t('collection.features.sizesValue'),
+                    },
+                    {
+                      label: t('collection.features.edition'),
+                      value: t('collection.features.editionValue'),
+                    },
                   ].map((feature, index) => (
                     <motion.div
                       key={index}
@@ -227,7 +245,7 @@ export default function Home() {
                 >
                   <BuyButton />
                   <p className="mt-4 text-gray-500 text-sm text-center">
-                    Free worldwide shipping • Authentic merchandise
+                    {t('collection.shipping')}
                   </p>
                 </motion.div>
               </motion.div>

@@ -7,6 +7,30 @@
     "tokutei": "特定商取引法",
     "success": "注文完了"
   },
+  "homepage": {
+    "hero": {
+      "title": "フランクフルト林",
+      "subtitle": "Taichi Hayashi",
+      "description": "日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。"
+    },
+    "collection": {
+      "title": "限定コレクション",
+      "limitedEdition": "限定版",
+      "productName": "シグネチャーTシャツ",
+      "productDescription": "限定デザインを使用したプレミアム品質のコットンTシャツ。私独自のスタイルと美学を表現するために丁寧に作られた一枚一枚。",
+      "features": {
+        "material": "素材",
+        "materialValue": "100% プレミアムコットン",
+        "design": "デザイン",
+        "designValue": "限定アーティストグラフィック",
+        "sizes": "サイズ",
+        "sizesValue": "S, M, L, XL, XXL",
+        "edition": "エディション",
+        "editionValue": "限定リリース"
+      },
+      "shipping": "世界中送料無料 • 正規品"
+    }
+  },
   "product": {
     "title": "フランクフルト林 公式Tシャツ",
     "description": "フランクフルト林の限定デザインを使用したプレミアム品質のTシャツです",

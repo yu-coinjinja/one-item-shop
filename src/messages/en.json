@@ -7,6 +7,30 @@
     "tokutei": "Commercial Transaction Act",
     "success": "Order Success"
   },
+  "homepage": {
+    "hero": {
+      "title": "Taichi Hayashi",
+      "subtitle": "フランクフルト林",
+      "description": "Discover exclusive merchandise from Japan's most captivating actor. Limited items that reflect elegance and sophistication."
+    },
+    "collection": {
+      "title": "Exclusive Collection",
+      "limitedEdition": "LIMITED EDITION",
+      "productName": "Signature T-Shirt",
+      "productDescription": "Premium quality cotton t-shirt featuring exclusive designs. Each piece is carefully crafted to represent my unique style and aesthetic.",
+      "features": {
+        "material": "Material",
+        "materialValue": "100% Premium Cotton",
+        "design": "Design",
+        "designValue": "Exclusive Artist Graphics",
+        "sizes": "Sizes",
+        "sizesValue": "S, M, L, XL, XXL",
+        "edition": "Edition",
+        "editionValue": "Limited Release"
+      },
+      "shipping": "Free worldwide shipping • Authentic merchandise"
+    }
+  },
   "product": {
     "title": "Taichi Hayashi Official T-Shirt",
     "description": "Premium quality t-shirt featuring exclusive Taichi Hayashi design",

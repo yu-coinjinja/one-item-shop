@@ -7,9 +7,33 @@
     "tokutei": "特定商業交易法",
     "success": "訂單成功"
   },
+  "homepage": {
+    "hero": {
+      "title": "Taichi Hayashi",
+      "subtitle": "林 太一",
+      "description": "探索來自日本最迷人演員的獨家商品。體現優雅與精緻的限量單品。"
+    },
+    "collection": {
+      "title": "獨家系列",
+      "limitedEdition": "限量版",
+      "productName": "簽名T恤",
+      "productDescription": "採用獨家設計的優質棉質T恤。每一件都經過精心製作，體現我獨特的風格和美學。",
+      "features": {
+        "material": "材質",
+        "materialValue": "100% 優質棉",
+        "design": "設計",
+        "designValue": "獨家藝術圖案",
+        "sizes": "尺碼",
+        "sizesValue": "S, M, L, XL, XXL",
+        "edition": "版本",
+        "editionValue": "限量發售"
+      },
+      "shipping": "全球免費配送 • 正品保證"
+    }
+  },
   "product": {
     "title": "Taichi Hayashi 官方T恤",
-    "description": "採用Taichi Hayashi獨家設計的高品質T恤",
+    "description": "採用 Taichi Hayashi 獨家設計的優質T恤",
     "price": "價格",
     "buyNow": "立即購買",
     "loading": "載入中...",
@@ -18,8 +42,8 @@
   "checkout": {
     "processing": "正在處理您的訂單...",
     "redirecting": "正在跳轉到結帳頁面...",
-    "error": "發生錯誤，請重試。",
-    "success": "訂單提交成功！"
+    "error": "出現錯誤，請重試。",
+    "success": "訂單下單成功！"
   },
   "common": {
     "loading": "載入中...",
@@ -34,7 +58,7 @@
   "footer": {
     "copyright": "© 2024 Taichi Hayashi. 保留所有權利。",
     "contact": "聯絡我們",
-    "support": "客服支援"
+    "support": "支援"
   },
   "language": {
     "select": "語言",

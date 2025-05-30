@@ -5,11 +5,35 @@
     "terms": "이용약관",
     "shipping": "배송정책",
     "tokutei": "특정상거래법",
-    "success": "주문완료"
+    "success": "주문 성공"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Taichi Hayashi",
+      "subtitle": "타이치 하야시",
+      "description": "일본에서 가장 매력적인 배우의 독점 상품을 만나보세요. 우아함과 세련됨을 반영한 한정 아이템."
+    },
+    "collection": {
+      "title": "독점 컬렉션",
+      "limitedEdition": "한정판",
+      "productName": "시그니처 티셔츠",
+      "productDescription": "독점 디자인을 사용한 프리미엄 품질의 면 티셔츠. 각 제품은 나만의 독특한 스타일과 미학을 표현하기 위해 정성스럽게 제작되었습니다.",
+      "features": {
+        "material": "소재",
+        "materialValue": "100% 프리미엄 면",
+        "design": "디자인",
+        "designValue": "독점 아티스트 그래픽",
+        "sizes": "사이즈",
+        "sizesValue": "S, M, L, XL, XXL",
+        "edition": "에디션",
+        "editionValue": "한정 출시"
+      },
+      "shipping": "전 세계 무료 배송 • 정품 보장"
+    }
   },
   "product": {
     "title": "Taichi Hayashi 공식 티셔츠",
-    "description": "Taichi Hayashi의 독점 디자인을 사용한 프리미엄 품질의 티셔츠",
+    "description": "Taichi Hayashi의 독점 디자인을 사용한 프리미엄 품질 티셔츠",
     "price": "가격",
     "buyNow": "지금 구매",
     "loading": "로딩 중...",
@@ -33,8 +57,8 @@
   },
   "footer": {
     "copyright": "© 2024 Taichi Hayashi. 모든 권리 보유.",
-    "contact": "문의하기",
-    "support": "고객지원"
+    "contact": "연락처",
+    "support": "지원"
   },
   "language": {
     "select": "언어",
