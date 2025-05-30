@@ -28,7 +28,11 @@ export default function Home() {
     [transitionStart, transitionEnd, transitionEnd + 200, transitionEnd + 300],
     [0, 1, 1, 0]
   )
-  const imageScale = useTransform(scrollY, [0, transitionStart], [1, 1.1])
+  const imageScale = useTransform(
+    scrollY,
+    [0, transitionStart, transitionEnd, transitionEnd + 600],
+    [1, 1.1, 1.1, 0.01]
+  )
 
   // Scroll indicator should disappear when real image appears
   const scrollIndicatorOpacity = useTransform(
@@ -159,7 +163,7 @@ export default function Home() {
               <motion.div
                 className="group relative"
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
@@ -183,7 +187,7 @@ export default function Home() {
               <motion.div
                 className="space-y-8"
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
