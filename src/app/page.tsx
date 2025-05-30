@@ -132,16 +132,6 @@ export default function Home() {
             >
               日本で最も魅力的な俳優からの限定グッズをご覧ください。エレガンスと洗練さを反映した限定アイテム。
             </motion.p>
-            <motion.p
-              className="mb-4 max-w-5xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Discover exclusive merchandise from Japan&apos;s most captivating actor. Limited
-              edition items that reflect elegance and sophistication.
-            </motion.p>
           </div>
         </section>
 
@@ -156,7 +146,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="mb-6 font-black text-black text-4xl md:text-5xl tracking-wide">
-                Exclusive Collection
+                限定コレクション
               </h2>
               <div className="bg-black mx-auto w-24 h-px"></div>
             </motion.div>

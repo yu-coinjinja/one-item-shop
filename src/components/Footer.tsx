@@ -11,7 +11,7 @@ const footerData = {
       'Official merchandise store featuring exclusive designs and premium quality apparel.',
   },
   legal: {
-    title: 'Legal',
+    title: 'リーガル',
     links: [
       { name: '特定商取引法に基づく表記', href: '/tokutei-shoutorihiki' },
       { name: 'プライバシー', href: '/privacy-policy' },
@@ -20,11 +20,11 @@ const footerData = {
     ],
   },
   payment: {
-    title: 'Payment Methods',
+    title: '支払い方法',
     methods: ['Visa', 'Mastercard'] as const,
   },
   social: {
-    title: 'Social Media',
+    title: 'SNS',
     links: [
       { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
       { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },

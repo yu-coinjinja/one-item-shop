@@ -30,7 +30,7 @@ const BrandLogo = ({ brand }: { brand: typeof navigationData.brand }) => (
     href={brand.href}
     className="font-medium text-white hover:text-gray-300 text-xl md:text-2xl tracking-wide transition-colors duration-200"
   >
-    TH Official Store
+    TH オフィシャルストア
   </Link>
 )
 
