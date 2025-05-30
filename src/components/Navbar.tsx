@@ -28,7 +28,7 @@ interface NavbarProps {
 const BrandLogo = ({ brand }: { brand: typeof navigationData.brand }) => (
   <Link
     href={brand.href}
-    className="font-medium text-white hover:text-gray-300 text-xl md:text-2xl tracking-wide transition-colors duration-200"
+    className="font-medium text-black hover:text-gray-500 text-xl md:text-2xl tracking-wide transition-colors duration-200"
   >
     TH オフィシャルストア
   </Link>
@@ -40,7 +40,7 @@ const NavigationLinks = ({ links }: { links: typeof navigationData.links }) => (
       <Link
         key={link.href}
         href={link.href}
-        className="text-gray-300 hover:text-white transition-colors duration-200"
+        className="text-gray-700 hover:text-black transition-colors duration-200"
       >
         {link.name}
       </Link>
@@ -51,7 +51,7 @@ const NavigationLinks = ({ links }: { links: typeof navigationData.links }) => (
 const MobileMenuButton = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => (
   <div className="md:hidden">
     <button
-      className="text-gray-300 hover:text-white transition-colors duration-200"
+      className="text-gray-700 hover:text-black transition-colors duration-200"
       onClick={onClick}
       aria-label="Toggle mobile menu"
     >
@@ -86,7 +86,7 @@ const MobileMenu = ({
   onLinkClick: () => void
 }) => (
   <motion.div
-    className="md:hidden bg-black/95 backdrop-blur-sm border-gray-800 border-t"
+    className="md:hidden bg-white/95 backdrop-blur-sm border-gray-100 border-t"
     initial={{ opacity: 0, height: 0 }}
     animate={{
       opacity: isOpen ? 1 : 0,
@@ -100,7 +100,7 @@ const MobileMenu = ({
         <Link
           key={link.href}
           href={link.href}
-          className="block py-2 text-gray-300 hover:text-white transition-colors duration-200"
+          className="block py-2 text-gray-700 hover:text-black transition-colors duration-200"
           onClick={onLinkClick}
         >
           {link.name}
@@ -134,7 +134,7 @@ export default function Navbar({ showOnScroll = false, scrollThreshold = 900 }: 
   return (
     <>
       <motion.nav
-        className="top-0 right-0 left-0 z-50 fixed bg-black/90 backdrop-blur-sm border-gray-800 border-b"
+        className="top-0 right-0 left-0 z-50 fixed bg-white/90 backdrop-blur-sm border-gray-100 border-b"
         initial={{
           opacity: shouldShowImmediately ? 1 : 0,
           y: shouldShowImmediately ? 0 : -100,
