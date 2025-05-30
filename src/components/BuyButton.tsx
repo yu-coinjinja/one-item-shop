@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
+import { useTranslations } from 'next-intl'
 
 // Check if the Stripe publishable key is configured
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -13,6 +14,8 @@ const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : 
 
 export default function BuyButton() {
   const [isLoading, setIsLoading] = useState(false)
+  const t = useTranslations('product')
+  const tCommon = useTranslations('common')
 
   const handleCheckout = async () => {
     try {
@@ -32,25 +35,24 @@ export default function BuyButton() {
       })
 
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error('Failed to create checkout session')
       }
 
       const { sessionId } = await response.json()
-      const stripe = await stripePromise
 
+      const stripe = await stripePromise
       if (!stripe) {
-        throw new Error('Stripe failed to initialize')
+        throw new Error('Stripe failed to load')
       }
 
-      // Redirect to Stripe Checkout
       const { error } = await stripe.redirectToCheckout({ sessionId })
 
       if (error) {
         throw error
       }
     } catch (error) {
-      console.error('Error:', error)
-      alert('Something went wrong. Please try again.')
+      console.error('Checkout error:', error)
+      alert('An error occurred during checkout. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -74,7 +76,7 @@ export default function BuyButton() {
       disabled={isLoading}
       className="flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 px-8 py-3 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full font-sans font-bold text-white cursor-pointer disabled:cursor-not-allowed"
     >
-      {isLoading ? 'Loading...' : '購入'}
+      {isLoading ? tCommon('loading') : t('buyNow')}
     </button>
   )
 }

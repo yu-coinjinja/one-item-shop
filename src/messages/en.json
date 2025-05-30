@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "home": "Home",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "shipping": "Shipping Policy"
+  },
+  "product": {
+    "title": "Takashi Yamamura Official T-Shirt",
+    "description": "Premium quality t-shirt featuring exclusive Takashi Yamamura design",
+    "price": "Price",
+    "buyNow": "Buy Now",
+    "loading": "Loading...",
+    "addToCart": "Add to Cart"
+  },
+  "checkout": {
+    "processing": "Processing your order...",
+    "redirecting": "Redirecting to checkout...",
+    "error": "Something went wrong. Please try again.",
+    "success": "Order placed successfully!"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Try Again",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close"
+  },
+  "footer": {
+    "copyright": "© 2024 Takashi Yamamura. All rights reserved.",
+    "contact": "Contact",
+    "support": "Support"
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "japanese": "日本語",
+    "simplifiedChinese": "简体中文",
+    "traditionalChinese": "繁體中文",
+    "korean": "한국어"
+  }
+} 

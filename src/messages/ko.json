@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "home": "홈",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "shipping": "배송정책"
+  },
+  "product": {
+    "title": "야마무라 타카시 공식 티셔츠",
+    "description": "야마무라 타카시의 독점 디자인을 사용한 프리미엄 품질의 티셔츠",
+    "price": "가격",
+    "buyNow": "지금 구매",
+    "loading": "로딩 중...",
+    "addToCart": "장바구니에 추가"
+  },
+  "checkout": {
+    "processing": "주문을 처리하고 있습니다...",
+    "redirecting": "결제 페이지로 이동 중...",
+    "error": "오류가 발생했습니다. 다시 시도해 주세요.",
+    "success": "주문이 성공적으로 완료되었습니다!"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "retry": "다시 시도",
+    "back": "뒤로",
+    "next": "다음",
+    "submit": "제출",
+    "cancel": "취소",
+    "close": "닫기"
+  },
+  "footer": {
+    "copyright": "© 2024 야마무라 타카시. 모든 권리 보유.",
+    "contact": "문의하기",
+    "support": "고객지원"
+  },
+  "language": {
+    "select": "언어 선택",
+    "english": "English",
+    "japanese": "日本語",
+    "simplifiedChinese": "简体中文",
+    "traditionalChinese": "繁體中文",
+    "korean": "한국어"
+  }
+} 

@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "shipping": "配送について"
+  },
+  "product": {
+    "title": "山村隆志 公式Tシャツ",
+    "description": "山村隆志の限定デザインを使用したプレミアム品質のTシャツです",
+    "price": "価格",
+    "buyNow": "今すぐ購入",
+    "loading": "読み込み中...",
+    "addToCart": "カートに追加"
+  },
+  "checkout": {
+    "processing": "ご注文を処理しています...",
+    "redirecting": "決済画面に移動しています...",
+    "error": "エラーが発生しました。もう一度お試しください。",
+    "success": "ご注文が正常に完了しました！"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "retry": "再試行",
+    "back": "戻る",
+    "next": "次へ",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "close": "閉じる"
+  },
+  "footer": {
+    "copyright": "© 2024 山村隆志. All rights reserved.",
+    "contact": "お問い合わせ",
+    "support": "サポート"
+  },
+  "language": {
+    "select": "言語を選択",
+    "english": "English",
+    "japanese": "日本語",
+    "simplifiedChinese": "简体中文",
+    "traditionalChinese": "繁體中文",
+    "korean": "한국어"
+  }
+} 

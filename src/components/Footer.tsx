@@ -2,37 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { PaymentIcon } from 'react-svg-credit-card-payment-icons'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 
-// Data layer - Footer configuration
-const footerData = {
-  artist: {
-    name: 'フランクフルト林 (Taichi Hayashi)',
-    description:
-      'Official merchandise store featuring exclusive designs and premium quality apparel.',
-  },
-  legal: {
-    title: 'リーガル',
-    links: [
-      { name: '特定商取引法に基づく表記', href: '/tokutei-shoutorihiki' },
-      { name: 'プライバシー', href: '/privacy-policy' },
-      { name: '利用規約', href: '/terms-of-service' },
-      { name: '配送条件', href: '/shipping-policy' },
-    ],
-  },
-  payment: {
-    title: '支払い方法',
-    methods: ['Visa', 'Mastercard'] as const,
-  },
-  social: {
-    title: 'SNS',
-    links: [
-      { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
-      { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },
-      { name: 'OnlyFans', href: 'https://onlyfans.com/ffhys', icon: 'onlyfans' },
-      { name: 'X', href: 'https://x.com/dekkai_chimpo', icon: 'x' },
-    ],
-  },
-  copyright: '© 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.',
+type FooterLink = {
+  name: string
+  href: '/privacy-policy' | '/terms-of-service' | '/shipping-policy'
 }
 
 // Custom SVG Icons
@@ -76,7 +51,7 @@ const iconMap = {
 }
 
 // Visual layer - Footer components
-const ArtistSection = ({ artist }: { artist: typeof footerData.artist }) => (
+const ArtistSection = ({ artist }: { artist: { name: string; description: string } }) => (
   <div className="md:col-span-2">
     <h4 className="mb-4 font-light text-lg md:text-2xl tracking-wide">{artist.name}</h4>
     <p className="text-gray-400 leading-relaxed">{artist.description}</p>
@@ -87,17 +62,17 @@ const LegalSection = ({
   legal,
   payment,
 }: {
-  legal: typeof footerData.legal
-  payment: typeof footerData.payment
+  legal: { title: string; links: FooterLink[] }
+  payment: { title: string; methods: readonly string[] }
 }) => (
   <div>
     <h5 className="mb-4 font-medium tracking-wide">{legal.title}</h5>
     <ul className="space-y-2 mb-6 text-gray-400">
       {legal.links.map(link => (
         <li key={link.href}>
-          <a href={link.href} className="hover:text-white transition-colors duration-200">
+          <Link href={link.href} className="hover:text-white transition-colors duration-200">
             {link.name}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
@@ -106,14 +81,18 @@ const LegalSection = ({
       <p className="mb-4 font-medium tracking-wide">{payment.title}</p>
       <div className="flex space-x-2 h-6">
         {payment.methods.map(method => (
-          <PaymentIcon key={method} type={method} format="flatRounded" />
+          <PaymentIcon key={method} type={method as 'Visa' | 'Mastercard'} format="flatRounded" />
         ))}
       </div>
     </div>
   </div>
 )
 
-const SocialSection = ({ social }: { social: typeof footerData.social }) => (
+const SocialSection = ({
+  social,
+}: {
+  social: { title: string; links: Array<{ name: string; href: string; icon: string }> }
+}) => (
   <div>
     <h5 className="mb-4 font-medium tracking-wide">{social.title}</h5>
     <div className="flex flex-col space-y-3">
@@ -142,7 +121,41 @@ const CopyrightSection = ({ copyright }: { copyright: string }) => (
   </div>
 )
 
+// Main component
 export default function Footer() {
+  const tNav = useTranslations('navigation')
+
+  // Create footer data using translations but keep original social links and styling
+  const footerData = {
+    artist: {
+      name: 'フランクフルト林 (Taichi Hayashi)',
+      description:
+        'Official merchandise store featuring exclusive designs and premium quality apparel.',
+    },
+    legal: {
+      title: 'リーガル',
+      links: [
+        { name: tNav('privacy'), href: '/privacy-policy' as const },
+        { name: tNav('terms'), href: '/terms-of-service' as const },
+        { name: tNav('shipping'), href: '/shipping-policy' as const },
+      ],
+    },
+    payment: {
+      title: '支払い方法',
+      methods: ['Visa', 'Mastercard'] as const,
+    },
+    social: {
+      title: 'SNS',
+      links: [
+        { name: 'Instagram', href: 'https://www.instagram.com', icon: 'instagram' },
+        { name: 'MyFans', href: 'http://myfans.jp/dekkai_chimpo', icon: 'myfans' },
+        { name: 'OnlyFans', href: 'https://onlyfans.com/ffhys', icon: 'onlyfans' },
+        { name: 'X', href: 'https://x.com/dekkai_chimpo', icon: 'x' },
+      ],
+    },
+    copyright: '© 2025 フランクフルト林 (Taichi Hayashi) Official Store. All rights reserved.',
+  }
+
   return (
     <motion.footer
       className="bg-black py-16 text-white"
