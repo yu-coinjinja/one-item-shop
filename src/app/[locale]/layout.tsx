@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Shippori_Mincho, Noto_Sans_JP, Inter } from 'next/font/google'
+import { Shippori_Mincho, Noto_Sans_JP } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
@@ -15,11 +15,6 @@ const shipporiSans = Shippori_Mincho({
 const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-sans-jp',
   weight: ['400', '700'],
-  subsets: ['latin'],
-})
-
-const inter = Inter({
-  variable: '--font-inter',
   subsets: ['latin'],
 })
 
@@ -166,9 +161,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body
-        className={`${shipporiSans.variable} ${notoSansJP.variable} ${inter.variable} antialiased`}
-      >
+      <body className={`${shipporiSans.variable} ${notoSansJP.variable}  antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
