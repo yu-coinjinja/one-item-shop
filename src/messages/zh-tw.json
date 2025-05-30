@@ -6,7 +6,14 @@
     "shipping": "配送政策",
     "tokutei": "特定商業交易法",
     "success": "訂單成功",
-    "brandName": "TH 官方店"
+    "brandName": "TH 官方商店"
+  },
+  "metadata": {
+    "title": "TH 官方商店 | 獨家商品",
+    "description": "探索來自日本最迷人偶像的獨家商品。體現優雅與精緻的限量版商品。",
+    "keywords": "フランクフルト林,Taichi Hayashi,日本偶像,獨家商品,限量版,高端服裝,日本時尚,偶像商品,官方商店",
+    "siteName": "TH 官方商店",
+    "ogImageAlt": "林太一官方商品"
   },
   "homepage": {
     "hero": {

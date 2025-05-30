@@ -5,8 +5,15 @@
     "terms": "이용약관",
     "shipping": "배송정책",
     "tokutei": "특정상거래법",
-    "success": "주문 성공",
-    "brandName": "TH 공식스토어"
+    "success": "주문완료",
+    "brandName": "TH 공식 스토어"
+  },
+  "metadata": {
+    "title": "TH 공식 스토어 | 독점 상품",
+    "description": "일본에서 가장 매력적인 아이돌의 독점 상품을 만나보세요. 우아함과 세련미를 반영한 한정판 아이템.",
+    "keywords": "フランクフルト林,Taichi Hayashi,일본 아이돌,독점 상품,한정판,프리미엄 의류,일본 패션,아이돌 상품,공식 스토어",
+    "siteName": "TH 공식 스토어",
+    "ogImageAlt": "하야시 타이치 공식 상품"
   },
   "homepage": {
     "hero": {

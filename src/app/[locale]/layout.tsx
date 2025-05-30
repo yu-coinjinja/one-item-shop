@@ -1,19 +1,19 @@
+import { routing } from '@/i18n/routing'
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages, getTranslations } from 'next-intl/server'
 import {
-  Shippori_Mincho,
-  Noto_Sans_JP,
-  Playfair_Display,
   Noto_Sans,
-  Noto_Serif_SC,
+  Noto_Sans_JP,
+  Noto_Sans_KR,
   Noto_Sans_SC,
-  Noto_Serif_TC,
   Noto_Sans_TC,
   Noto_Serif_KR,
-  Noto_Sans_KR,
+  Noto_Serif_SC,
+  Noto_Serif_TC,
+  Playfair_Display,
+  Shippori_Mincho,
 } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
-import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 
 // Japanese fonts
@@ -107,43 +107,18 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-
-  const titles = {
-    en: 'TH Official Store | Exclusive Merchandise',
-    ja: 'TH オフィシャルストア | 限定グッズ',
-    'zh-cn': 'TH 官方商店 | 独家商品',
-    'zh-tw': 'TH 官方商店 | 獨家商品',
-    ko: 'TH 공식 스토어 | 독점 상품',
-  }
-
-  const descriptions = {
-    en: "Discover exclusive merchandise from Japan's most captivating idol. Limited edition items that reflect elegance and sophistication.",
-    ja: '日本で最も魅力的なアイドルの限定グッズをご覧ください。エレガンスと洗練を反映した限定アイテム。',
-    'zh-cn': '探索来自日本最迷人偶像的独家商品。体现优雅与精致的限量版商品。',
-    'zh-tw': '探索來自日本最迷人偶像的獨家商品。體現優雅與精緻的限量版商品。',
-    ko: '일본에서 가장 매력적인 아이돌의 독점 상품을 만나보세요. 우아함과 세련미를 반영한 한정판 아이템.',
-  }
+  const t = await getTranslations({ locale, namespace: 'metadata' })
 
   return {
     title: {
-      default: titles[locale as keyof typeof titles] || titles.en,
-      template: `%s | ${titles[locale as keyof typeof titles] || titles.en}`,
+      default: t('title'),
+      template: `%s | ${t('title')}`,
     },
-    description: descriptions[locale as keyof typeof descriptions] || descriptions.en,
-    keywords: [
-      'フランクフルト林',
-      'Taichi Hayashi',
-      'Japanese idol',
-      'exclusive merchandise',
-      'limited edition',
-      'premium clothing',
-      'Japanese fashion',
-      'idol merchandise',
-      'official store',
-    ],
+    description: t('description'),
+    keywords: t('keywords').split(','),
     authors: [{ name: 'フランクフルト林 (Taichi Hayashi)' }],
     creator: 'フランクフルト林 (Taichi Hayashi)',
-    publisher: 'TH オフィシャルストア',
+    publisher: t('siteName'),
     formatDetection: {
       email: false,
       address: false,
@@ -151,10 +126,10 @@ export async function generateMetadata({
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_STORE_DOMAIN || 'http://localhost:3000'),
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `/${locale === 'ja' ? '' : locale}`,
       languages: {
         en: '/en',
-        ja: '/ja',
+        ja: '/',
         'zh-CN': '/zh-cn',
         'zh-TW': '/zh-tw',
         ko: '/ko',
@@ -163,23 +138,23 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: locale,
-      url: `/${locale}`,
-      title: titles[locale as keyof typeof titles] || titles.en,
-      description: descriptions[locale as keyof typeof descriptions] || descriptions.en,
-      siteName: 'TH オフィシャルストア',
+      url: `/${locale === 'ja' ? '' : locale}`,
+      title: t('title'),
+      description: t('description'),
+      siteName: t('siteName'),
       images: [
         {
           url: '/og.png',
           width: 1200,
           height: 630,
-          alt: 'Taichi Hayashi Official Merchandise',
+          alt: t('ogImageAlt'),
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[locale as keyof typeof titles] || titles.en,
-      description: descriptions[locale as keyof typeof descriptions] || descriptions.en,
+      title: t('title'),
+      description: t('description'),
       images: ['/og.png'],
       creator: '@takashi_yamamura',
     },
@@ -213,13 +188,13 @@ export default async function LocaleLayout({
 
   // Providing all messages to the client side is the easiest way to get started
   const messages = await getMessages()
+  const t = await getTranslations({ locale, namespace: 'metadata' })
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Store',
-    name: 'TH オフィシャルストア',
-    description:
-      "Discover exclusive merchandise from Japan's most captivating idol. Limited edition items that reflect elegance and sophistication.",
+    name: t('siteName'),
+    description: t('description'),
     url: process.env.NEXT_PUBLIC_STORE_DOMAIN || 'http://localhost:3000',
     logo: `${process.env.NEXT_PUBLIC_STORE_DOMAIN || 'http://localhost:3000'}/item1.jpg`,
     image: `${process.env.NEXT_PUBLIC_STORE_DOMAIN || 'http://localhost:3000'}/item1.jpg`,
