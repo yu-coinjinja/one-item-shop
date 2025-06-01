@@ -85,7 +85,7 @@ const notoSansKR = Noto_Sans_KR({
 function getFontsForLocale(locale: string) {
   switch (locale) {
     case 'ja':
-      return `${DelaGothicOne.variable} ${M_PLUS_Rounded_1c.variable}`
+      return `${DelaGothicOne.variable} ${MPlusRounded1c.variable}`
     case 'zh-cn':
       return `${notoSerifSC.variable} ${notoSansSC.variable}`
     case 'zh-tw':
