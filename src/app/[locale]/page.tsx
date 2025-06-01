@@ -59,7 +59,7 @@ export default function Home() {
           style={{ opacity: lineArtOpacity, scale: imageScale }}
         >
           <Image
-            src="/line.jpg"
+            src="/line.png"
             alt="Taichi Hayashi Line Art"
             fill
             className="rounded-lg object-cover"
@@ -73,7 +73,7 @@ export default function Home() {
           style={{ opacity: realPhotoOpacity, scale: imageScale }}
         >
           <Image
-            src="/real.jpg"
+            src="/real.png"
             alt="Taichi Hayashi"
             fill
             className="rounded-lg object-cover"
