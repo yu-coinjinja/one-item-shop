@@ -21,7 +21,7 @@ import { notFound } from 'next/navigation'
 // Japanese fonts
 const DelaGothicOne = Dela_Gothic_One({
   variable: '--font-serif',
-  weight: ['400', '700'],
+  weight: '400',
   subsets: ['latin'],
 })
 
