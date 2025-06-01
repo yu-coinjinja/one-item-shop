@@ -37,3 +37,4 @@
     "typescript": "^5.8.3"
   }
 }
+jsonc\n \"build\": \"echo RESEND=$RESEND_API_KEY && bun run next:build\"\n
