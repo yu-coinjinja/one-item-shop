@@ -12,15 +12,14 @@ import {
   Noto_Serif_TC,
   Playfair_Display,
   M_PLUS_Rounded_1c, 
-  Dela_Gothic_One
+  Kosugi_Maru
 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
 // Japanese fonts
-const DelaGothicOne = Dela_Gothic_One({
-  variable: '--font-serif',
-  weight: '400',
-  subsets: ['latin'],
+const kosugiMaru = Kosugi_Maru({
+  subsets: ['latin', 'japanese'], 
+  variable: '--font-rounded' 
 })
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
@@ -85,7 +84,7 @@ const notoSansKR = Noto_Sans_KR({
 function getFontsForLocale(locale: string) {
   switch (locale) {
     case 'ja':
-      return `${DelaGothicOne.variable} ${MPlusRounded1c.variable}`
+      return `${kosugiMaru.variable} ${MPlusRounded1c.variable}`
     case 'zh-cn':
       return `${notoSerifSC.variable} ${notoSansSC.variable}`
     case 'zh-tw':
