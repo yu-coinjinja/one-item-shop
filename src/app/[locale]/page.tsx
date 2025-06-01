@@ -121,7 +121,7 @@ export default function Home() {
               {t('hero.title')}
             </motion.h1>
             <motion.h2
-              className="mb-6 font-light text-black text-2xl md:text-3xl tracking-wide"
+              className="mb-6 font-light text-black text-xl md:text-3xl tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -130,7 +130,7 @@ export default function Home() {
               {t('hero.subtitle')}
             </motion.h2>
             <motion.p
-              className="max-w-5xl font-light text-gray-700 text-lg md:text-xl leading-relaxed"
+              className="max-w-5xl font-light text-gray-700 text-base md:text-xl leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
