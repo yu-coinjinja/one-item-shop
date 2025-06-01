@@ -20,11 +20,11 @@ import { notFound } from 'next/navigation'
 const kosugiMaru = Kosugi_Maru({
   subsets: ['latin'], 
   weight: '400',
-  variable: '--font-rounded' 
+  variable: '--font-sans' 
 })
 
 const MPlusRounded1c = M_PLUS_Rounded_1c({
-  variable: '--font-sans',
+  variable: '--font-serif',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
