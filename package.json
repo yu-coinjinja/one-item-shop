@@ -6,7 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "build": "echo RESEND=$RESEND_API_KEY && bun run next:build"
+    "build": "echo RESEND=$RESEND_API_KEY && next build"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
