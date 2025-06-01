@@ -85,7 +85,7 @@ const notoSansKR = Noto_Sans_KR({
 function getFontsForLocale(locale: string) {
   switch (locale) {
     case 'ja':
-      return `${kosugiMaru.variable} ${MPlusRounded1c.variable}`
+      return `${MPlusRounded1c.variable} ${kosugiMaru.variable}`
     case 'zh-cn':
       return `${notoSerifSC.variable} ${notoSansSC.variable}`
     case 'zh-tw':
