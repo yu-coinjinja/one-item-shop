@@ -18,7 +18,7 @@ import { notFound } from 'next/navigation'
 
 // Japanese fonts
 const kosugiMaru = Kosugi_Maru({
-  subsets: ['latin', 'japanese'], 
+  subsets: ['latin'], 
   variable: '--font-rounded' 
 })
 
