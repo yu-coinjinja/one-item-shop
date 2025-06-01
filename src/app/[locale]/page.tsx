@@ -112,7 +112,7 @@ export default function Home() {
         <section className="px-4 sm:px-6 lg:px-8 pt-[80vh] pb-32 md:pb-64 text-center">
           <div className="flex flex-col items-center gap-3 mx-auto">
             <motion.h1
-              className="mb-4 font-black text-black text-4xl md:text-7xl tracking-wide"
+              className="mb-4 font-black text-black text-3xl md:text-7xl tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
