@@ -4,7 +4,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Override default HTML elements with styled versions
     h1: ({ children }) => (
-      <h1 className="mb-8 font-bold text-gray-900 dark:text-white text-4xl">{children}</h1>
+      <h1 className="mb-8 font-bold text-gray-900 dark:text-white text-3xl">{children}</h1>
     ),
     h2: ({ children }) => (
       <h2 className="mt-12 first:mt-0 mb-8 pb-4 border-gray-200 dark:border-gray-700 border-b font-bold text-gray-900 dark:text-white text-2xl">
