@@ -13,17 +13,19 @@ import {
   Noto_Serif_TC,
   Playfair_Display,
   Shippori_Mincho,
+  M_PLUS_Rounded_1c, 
+  Dela_Gothic_One
 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
 // Japanese fonts
-const shipporiMincho = Shippori_Mincho({
+const DelaGothicOne = Dela_Gothic_One({
   variable: '--font-serif',
   weight: ['400', '700'],
   subsets: ['latin'],
 })
 
-const notoSansJP = Noto_Sans_JP({
+const MPlusRounded1c = M_PLUS_Rounded_1c({
   variable: '--font-sans',
   weight: ['400', '700'],
   subsets: ['latin'],
