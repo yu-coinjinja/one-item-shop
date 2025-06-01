@@ -1,16 +1,14 @@
+// lib/email.ts
 import { Resend } from "resend";
 
-if (!process.env.RESEND_API_KEY) {
-  throw new Error("RESEND_API_KEY is not set in environment variables");
-}
+// 「本番値で上書きされるまで」のフォールバック
+const DUMMY_RESEND_KEY   = "re_dummy_key";
+const DUMMY_SENDER_EMAIL = "noreply@example.com";
 
-if (!process.env.SENDER_EMAIL_ADDRESS) {
-  throw new Error("SENDER_EMAIL_ADDRESS is not set in environment variables");
-}
-
-export const resend = new Resend(process.env.RESEND_API_KEY);
-const senderEmail = process.env.SENDER_EMAIL_ADDRESS as string;
-
+/**
+ * 実際にメール送信を行う関数。
+ * ダミー設定のまま呼ばれた場合は 501 を投げて終了します。
+ */
 export async function sendOrderConfirmationEmail(
   customerEmail: string,
   orderDetails: {
@@ -20,31 +18,43 @@ export async function sendOrderConfirmationEmail(
     currency: string;
   }
 ) {
-  try {
-    const { data, error } = await resend.emails.send({
-      from: senderEmail,
-      to: customerEmail,
-      subject: `Order Confirmation - ${orderDetails.productName}`,
-      html: `
-        <h1>Thank you for your order!</h1>
-        <p>Your order details:</p>
-        <ul>
-          <li>Product: ${orderDetails.productName}</li>
-          <li>Order ID: ${orderDetails.orderId}</li>
-          <li>Amount: ${orderDetails.amount} ${orderDetails.currency}</li>
-        </ul>
-        <p>We'll notify you when your order ships.</p>
-      `,
-    });
+  const resendKey = process.env.RESEND_API_KEY ?? DUMMY_RESEND_KEY;
+  const sender    = process.env.SENDER_EMAIL_ADDRESS ?? DUMMY_SENDER_EMAIL;
 
-    if (error) {
-      console.error("Error sending email:", error);
-      throw error;
-    }
+  // ① 本番キーが未設定なら 501 Not Implemented を返すだけ
+  if (
+    resendKey === DUMMY_RESEND_KEY ||
+    sender    === DUMMY_SENDER_EMAIL
+  ) {
+    throw new Response(
+      JSON.stringify({ message: "Email service not configured." }),
+      { status: 501, headers: { "Content-Type": "application/json" } }
+    );
+  }
 
-    return data;
-  } catch (error) {
-    console.error("Failed to send order confirmation email:", error);
+  // ② ここから本来の処理
+  const resend = new Resend(resendKey);
+
+  const { data, error } = await resend.emails.send({
+    from: sender,
+    to: customerEmail,
+    subject: `Order Confirmation - ${orderDetails.productName}`,
+    html: `
+      <h1>Thank you for your order!</h1>
+      <p>Your order details:</p>
+      <ul>
+        <li>Product: ${orderDetails.productName}</li>
+        <li>Order ID: ${orderDetails.orderId}</li>
+        <li>Amount: ${orderDetails.amount} ${orderDetails.currency}</li>
+      </ul>
+      <p>We'll notify you when your order ships.</p>
+    `,
+  });
+
+  if (error) {
+    console.error("Error sending email:", error);
     throw error;
   }
+
+  return data;
 }
