@@ -151,7 +151,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="mb-6 font-black text-black text-4xl md:text-5xl tracking-wide">
+              <h2 className="mb-6 font-black text-black text-3xl md:text-5xl tracking-wide">
                 {t('collection.title')}
               </h2>
               <div className="bg-black mx-auto w-24 h-px"></div>
@@ -196,7 +196,7 @@ export default function Home() {
                     {t('collection.limitedEdition')}
                   </div>
 
-                  <h3 className="mb-4 font-light text-black text-3xl md:text-4xl tracking-wide">
+                  <h3 className="mb-4 font-light text-black text-2xl md:text-4xl tracking-wide">
                     {t('collection.productName')}
                   </h3>
 
