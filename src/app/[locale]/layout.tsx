@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import {
   Noto_Sans,
-  Noto_Sans_JP,
   Noto_Sans_KR,
   Noto_Sans_SC,
   Noto_Sans_TC,
@@ -12,7 +11,6 @@ import {
   Noto_Serif_SC,
   Noto_Serif_TC,
   Playfair_Display,
-  Shippori_Mincho,
   M_PLUS_Rounded_1c, 
   Dela_Gothic_One
 } from 'next/font/google'
@@ -87,7 +85,7 @@ const notoSansKR = Noto_Sans_KR({
 function getFontsForLocale(locale: string) {
   switch (locale) {
     case 'ja':
-      return `${shipporiMincho.variable} ${notoSansJP.variable}`
+      return `${DelaGothicOne.variable} ${M_PLUS_Rounded_1c.variable}`
     case 'zh-cn':
       return `${notoSerifSC.variable} ${notoSansSC.variable}`
     case 'zh-tw':
